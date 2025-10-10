@@ -1,0 +1,292 @@
+/* ---------------------------------- */
+/* --- VARIABLES Y RESETS --- */
+/* ---------------------------------- */
+:root {
+    --color-background-dark: #283747;
+    --color-primary: #336699;
+    --color-text-light: #EBEBEB;
+    --color-text-muted: #b0b0b0;
+    --color-input-bg: var(--color-primary);
+    --color-active-nav: #4f6479;
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: var(--color-background-dark);
+    font-family: var(--font-family);
+    color: var(--color-text-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* --- Contenedor Principal --- */
+.profile-container {
+    display: flex;
+    width: min(1000px, 95vw);
+    height: min(600px, 90vh);
+    background-color: var(--color-background-dark);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* ---------------------------------- */
+/* --- BARRA LATERAL (Sidebar) --- */
+/* ---------------------------------- */
+.sidebar {
+    flex: 0 0 250px; 
+    padding: 25px 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.logo-area { padding: 10px 0 30px; }
+.logo-circle {
+    width: 80px; height: 80px; background-color: #fff; border-radius: 50%;
+    display: flex; justify-content: center; align-items: center; margin-left: 20px;
+}
+.logo-circle img { width: 60px; height: 60px; opacity: 0.9; }
+
+.profile-nav { width: 100%; flex-grow: 1; margin-left: 20px; }
+.profile-nav ul { list-style: none; margin: 0; padding: 0; }
+.profile-nav li {
+    display: flex; align-items: center; padding: 12px 25px; cursor: pointer;
+    color: var(--color-text-muted); transition: color 0.2s; font-size: 18px;
+}
+.profile-nav li i {
+    margin-right: 10px; font-size: 20px; width: 20px; text-align: center;
+    color: var(--color-text-muted);
+}
+.profile-nav li:hover,
+.profile-nav li.active {
+    background-color: var(--color-active-nav);
+    color: var(--color-background-dark);
+}
+
+/* Mensaje de error */
+.error-msg {
+    color: #d32f2f;
+    font-size: 0.9em;
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+/* Borde rojo en campos con error */
+.input-error {
+    border: 2px solid #d32f2f !important;
+    background-color: #ffeaea;
+    transition: all 0.3s ease;
+}
+
+/* Opcional: efecto suave cuando el error desaparece */
+input:not(.input-error),
+select:not(.input-error),
+textarea:not(.input-error) {
+    transition: all 0.3s ease;
+}
+
+
+/* ---------------------------------- */
+/* --- CONTENIDO PRINCIPAL (HOST DE TABS) --- */
+/* ---------------------------------- */
+.main-content {
+    flex-grow: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* CLAVE: Estilo para las pestañas */
+.content-tab {
+    width: 100%;
+    height: 100%;
+    /* Ocultar y superponer por defecto */
+    position: absolute; 
+    top: 0;
+    left: 0;
+    padding: 40px;
+    visibility: hidden; 
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+    overflow-y: auto;
+}
+
+.content-tab.active {
+    /* Mostrar solo la pestaña activa */
+    visibility: visible; 
+    opacity: 1;
+    pointer-events: all;
+    position: relative; /* Clave para que ocupe espacio y use flex-direction: column */
+    display: flex;
+    flex-direction: column;
+    padding: 0; /* padding reseteado para flexbox */
+}
+
+/* --- Encabezado --- */
+.content-header { margin-bottom: 30px; text-align: left; }
+.content-header h1 { font-size: 32px; font-weight: 700; margin: 0 0 8px; color: var(--color-text-light); }
+.content-header p { font-size: 16px; color: var(--color-text-muted); margin: 0; }
+
+
+/* ---------------------------------- */
+/* --- ESTILOS DE FORMULARIO/UPLOAD --- */
+/* ---------------------------------- */
+.form-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; max-width: 600px;
+}
+.input-field {
+    padding: 15px 20px; border-radius: 8px; background-color: var(--color-input-bg);
+    color: var(--color-text-light); display: flex; align-items: center; position: relative; 
+}
+.input-field i { margin-right: 10px; font-size: 22px; }
+.input-field input {
+    flex-grow: 1; background: transparent; border: none; outline: none;
+    color: var(--color-text-light); font-size: 18px; font-weight: 600; padding: 0;
+}
+.input-field input::placeholder { color: rgba(255, 255, 255, 0.8); }
+.input-field.full-width { grid-column: 1 / -1; }
+
+/* Acciones (Omitir/Siguiente) */
+.form-actions { display: flex; justify-content: space-between; margin-top: auto; }
+.btn { padding: 12px 30px; border-radius: 8px; border: none; font-size: 16px; font-weight: 600; cursor: pointer; transition: background-color 0.2s; }
+.btn.primary { background-color: var(--color-primary); color: #fff; }
+.btn.primary:hover { background-color: #335f91; }
+.btn.secondary { background-color: var(--color-active-nav); color: var(--color-text-muted); }
+.btn.secondary:hover { background-color: #557291; color: var(--color-text-light); }
+
+/* Área de Subida */
+.upload-area-wrapper {
+    flex-grow: 1; display: flex; justify-content: center; align-items: center; width: 100%; margin-top: 30px;
+}
+.upload-dropzone {
+    width: 250px; height: 250px; border-radius: 50%; background-color: var(--color-primary);
+    border: 3px solid #f0f0f0; display: flex; justify-content: center; align-items: center;
+    cursor: pointer; transition: background-color 0.2s; box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+.upload-dropzone:hover { background-color: #335f91; }
+.upload-dropzone i { color: #fff; font-size: 70px; }
+/* ---------------------------------- */
+/* --- ESTILOS DE ESTADOS DE SUBIDA --- */
+/* ---------------------------------- */
+
+/* Contenedor de estados para ocultar/mostrar */
+.upload-area-wrapper {
+    /* Clave: Hacemos que el wrapper sea un contenedor para los estados */
+    position: relative;
+    flex-grow: 1; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    width: 100%;
+    margin-top: 30px;
+}
+
+.upload-state {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    /* Ocultar todos los estados por defecto */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.upload-state.active {
+    /* Mostrar solo el estado activo */
+    visibility: visible;
+    opacity: 1;
+}
+
+/* --------------------------------- */
+/* Estilos para las Tarjetas de Archivo (Éxito/Error) */
+/* --------------------------------- */
+
+.file-name-bar {
+    width: 400px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-text-light);
+}
+
+.file-name-bar.error {
+    background-color: #A03A3A; /* Rojo */
+}
+
+.file-name-bar.success {
+    background-color: var(--color-primary); /* Azul de marca */
+}
+
+.file-name-bar i {
+    cursor: pointer;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.file-message {
+    font-size: 16px;
+    color: var(--color-text-muted);
+    margin-bottom: 40px;
+}
+
+/* --------------------------------- */
+/* Estilos para los Círculos de Íconos (Éxito/Error) */
+/* --------------------------------- */
+
+.upload-icon-box {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    color: var(--color-text-light); /* Icono blanco */
+}
+
+.upload-icon-box.error {
+    background-color: #A03A3A; /* Rojo */
+}
+
+.upload-icon-box.success {
+    background-color: var(--color-primary); /* Azul de marca */
+}
+
+/* Ajuste del botón Siguiente/Finalizar para el estado de éxito */
+.upload-state.success .form-actions {
+    position: absolute; /* Quitarlo del flujo normal de la columna */
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    justify-content: flex-end; /* Alinear solo a la derecha */
+}
+/* Asegurar que el botón no tenga margin-top: auto del formulario, ya que está absoluto */
+.upload-state.success .form-actions button {
+    margin-top: 20px; 
+}
