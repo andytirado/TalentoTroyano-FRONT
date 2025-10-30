@@ -1,63 +1,82 @@
 body {
     font-family: 'Poppins', sans-serif;
     overflow: hidden;
-}
-.titulo1 { font-family: 'Protest Riot', sans-serif; }
-.titulo2 { font-family: 'Protest Riot', sans-serif; color: #3A5BA0; }
-.avatar { width: 35px; height: 35px; border-radius: 50%; background-color: #1a1a1a; }
-.oferta {
+  }
+  .titulo1, .titulo2 {
+    font-family: 'Protest Riot', sans-serif;
+  }
+  .titulo2 { color: #336699; }
+  
+  .avatar {
+    width: 35px; height: 35px;
+    border-radius: 50%; background-color: #1a1a1a;
+  }
+  
+  .oferta {
     background-color: #1E3A5F;
     transition: background-color 0.3s ease;
-}
-.oferta:hover { background-color: #2a5288; }
-.oferta.active {
-    background-color: #3A5BA0;
-    border: 2px solid #ffffff;
-}
-.detalle {
-    background-color: #1E2F45;
+  }
+  .oferta:hover { background-color: #336699; }
+  .oferta.active {
+    background-color: #336699;
+    border: 2px solid #ebebeb;
+  }
+  
+  .detalle {
+    background-color: #283747;
     transition: background-color 0.5s ease;
     height: calc(100vh - 61px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#detalle-completo {
-    display: none;
-}
-
-.detalle-logo {
-    width: 90px;
-    height: 90px;
-    background-color: #333;
-}
-.detalle-descripcion {
+  }
+  .detalle-logo {
+    width: 80px; height: 80px;
+    background-color: #336699;
+  }
+  .detalle-descripcion {
     font-size: 1rem;
     line-height: 1.7;
-    padding-right: 15px;
-}
-.btn-custom {
-    background-color: #3A5BA0;
-    color: white;
-    padding: 15px;
+    padding-right: 10px;
+  }
+  .btn-custom {
+    background-color: #283747;
+    color: #fff;
+    padding: 14px;
     font-size: 1.25rem;
     font-weight: bold;
     border: none;
     border-radius: 10px;
-    transition: background-color 0.3s ease;
-    display: none;
-}
-.btn-custom:hover { background-color: #2c4a8d; color: white; }
-.cursor-pointer { cursor: pointer; }
-
-/* CENTRAR EL MENSAJE PRINCIPAL */
-.detalle-inicio {
+    transition: 0.3s;
+  }
+  .btn-custom:hover {
+    background-color: #5288c2;
+  }
+  .detalle-inicio {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 100%;
     width: 100%;
-    background-color: aqua;
-}
+    height: 100%;
+  }
+  .cursor-pointer { cursor: pointer; }
+  
+  .ofertas {
+    max-height: calc(100vh - 180px);
+  }
+  
+  /* ✅ Pantalla de éxito */
+  .detalle-exito {
+    background-color: #336699;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+  }
+  .check-circle {
+    font-size: 4rem;
+    color: #4ade80; /* Verde check */
+    animation: pop 0.4s ease-in-out;
+  }
+  @keyframes pop {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacantes Finalizadas</title>
+    
+    <!-- CSS Global y de la Página -->
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/vacantesFinalizadas.css">
+    
+    <!-- Biblioteca de Iconos (Lucide) -->
+    <script src="https://unpkg.com/lucide@latest/dist/lucide.min.js"></script>
+
+    <!-- JS de la Aplicación (defer asegura que se cargue después del HTML) -->
+    <script src="app.js" defer></script>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- 1. Cabecera y Controles -->
+        <header class="page-header">
+            <h1 class="page-title">Vacantes Finalizadas</h1>
+            
+            <div class="controls-container">
+                <!-- Barra de Búsqueda -->
+                <div class="search-wrapper">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input 
+                        type="text" 
+                        placeholder="Buscar por título, ID o departamento..." 
+                        class="search-input"
+                    />
+                </div>
+                
+                <!-- Botón de Filtro -->
+                <button class="button button-filter">
+                    <i data-lucide="sliders-horizontal" class="button-icon"></i>
+                    <span>Filtros</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- 2. Lista de Vacantes Finalizadas -->
+        <main class="vacancy-list">
+
+            <!-- Tarjeta de Vacante: CONTRATADA -->
+            <article class="vacancy-card">
+                <div class="card-content">
+                    <!-- Cabecera de la tarjeta -->
+                    <div class="card-header">
+                        <div>
+                            <h2 class="card-title">Desarrollador Full-Stack Sr. (Node/React)</h2>
+                            <p class="card-subtitle">Publicada por: Carlos Mendoza</p>
+                        </div>
+                        <!-- Etiqueta de Estado: Contratada -->
+                        <div class="status-badge status-hired">
+                            <i data-lucide="check-circle" class="badge-icon"></i>
+                            Contratada
+                        </div>
+                    </div>
+
+                    <!-- Detalles y Estadísticas Clave -->
+                    <div class="card-details-grid">
+                        <div class="detail-item">
+                            <span class="detail-label">Departamento</span>
+                            <p class="detail-value">
+                                <i data-lucide="building-2" class="detail-icon"></i>
+                                Ingeniería
+                            </p>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Finalizada</span>
+                            <p class="detail-value">
+                                <i data-lucide="calendar-check" class="detail-icon"></i>
+                                15 de Oct, 2025
+                            </p>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Total Aplicantes</span>
+                            <p class="detail-value">
+                                <i data-lucide="users" class="detail-icon"></i>
+                                128
+                            </p>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Seleccionado</span>
+                            <p class="detail-value detail-value-highlight">
+                                <i data-lucide="user-check" class="detail-icon-highlight"></i>
+                                Ana Gabriela Pérez
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pie de Tarjeta: Acciones -->
+                <footer class="card-footer">
+                    <button class="button button-secondary">
+                        Ver Detalles
+                    </button>
+                    <button class="button button-primary">
+                        <i data-lucide="copy" class="button-icon"></i>
+                        Clonar Vacante
+                    </button>
+                </footer>
+            </article>
+
+            <!-- Tarjeta de Vacante: CANCELADA -->
+            <article class="vacancy-card">
+                <div class="card-content">
+                    <!-- Cabecera de la tarjeta -->
+                    <div class="card-header">
+                        <div>
+                            <h2 class="card-title">Analista de Marketing Digital Jr.</h2>
+                            <p class="card-subtitle">Publicada por: Laura Torres</p>
+                        </div>
+                        <!-- Etiqueta de Estado: Cancelada -->
+                        <div class="status-badge status-cancelled">
+                            <i data-lucide="x-circle" class="badge-icon"></i>
+                            Cancelada
+                        </div>
+                    </div>
+
+                    <!-- Detalles y Estadísticas Clave -->
+                    <div class="card-details-grid">
+                        <div class="detail-item">
+                            <span class="detail-label">Departamento</span>
+                            <p class="detail-value">
+                                <i data-lucide="building-2" class="detail-icon"></i>
+                                Marketing
+                            </p>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Cancelada</span>
+                            <p class="detail-value">
+                                <i data-lucide="calendar-x" class="detail-icon"></i>
+                                01 de Oct, 2025
+                            </p>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Total Aplicantes</span>
+                            <p class="detail-value">
+                                <i data-lucide="users" class="detail-icon"></i>
+                                42
+                            </p>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Motivo</span>
+                            <p class="detail-value" title="Presupuesto reasignado a otra área.">
+                                Reajuste de presupuesto
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pie de Tarjeta: Acciones -->
+                <footer class="card-footer">
+                    <button class="button button-secondary">
+                        Ver Detalles
+                    </button>
+                    <button class="button button-primary">
+                        <i data-lucide="copy" class="button-icon"></i>
+                        Clonar Vacante
+                    </button>
+                </footer>
+            </article>
+
+            <!-- Más tarjetas irían aquí... -->
+
+        </main>
+    </div>
+    <script src="../JavaScripts/vacantesFinalizadas.js"></script>
+</body>
+</html>

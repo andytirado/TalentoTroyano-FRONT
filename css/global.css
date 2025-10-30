@@ -1,0 +1,142 @@
+/* --- Reseteo Básico y Globales --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #283747; 
+    color: #ebebeb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+/* --- Contenedor Principal de Pantalla (Compartido) --- */
+.pantalla {
+    width: 100%;
+    max-width: 900px;
+    background-color: #ebebeb; 
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    border: 1px solid #444;
+    
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh; 
+}
+
+/* --- Cabecera de Pantalla (Compartida) --- */
+.pantalla-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: #ebebeb;
+    border-bottom: 1px solid #444;
+}
+
+.logo-app {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; 
+}
+.logo-app .logo-icon {
+    width: 40px; 
+    height: 40px;
+}
+.logo-app h2 {
+    margin: 0;
+    font-size: 1.5rem; 
+    color: #336699;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.user-info img {
+    width: 24px;
+    height: 24px;
+    opacity: 0.8;
+    background-color: #336699;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.8rem;
+    text-align: right;
+    color: #336699;
+}
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    background-color: #336699;
+    border-radius: 50%;
+    border: 2px solid #283747;
+}
+
+/* --- Contenido de Pantalla (Base) --- */
+.pantalla-content {
+    padding: 1.5rem;
+    background-color: #ebebeb;
+    flex: 1; 
+    overflow-y: auto; 
+}
+
+/* --- Pie de Página de Pantalla (Compartido) --- */
+.pantalla-footer {
+    padding: 1rem 1.5rem;
+    background-color: #ebebeb;
+    border-top: 1px solid #444;
+    display: flex;
+    justify-content: flex-end; 
+}
+
+.pantalla-footer.split {
+    justify-content: space-between;
+}
+
+/* --- Botones (Compartidos) --- */
+.btn {
+    background-color: #4A7A9F;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn:hover {
+    background-color: #5a9ac8;
+}
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-secondary {
+    background-color: #283747; 
+    color: #ebebeb;
+}
+
+.btn-secondary:hover {
+    background-color: #336699;
+}
+
+a.btn, a.btn-secondary {
+    text-decoration: none;
+}

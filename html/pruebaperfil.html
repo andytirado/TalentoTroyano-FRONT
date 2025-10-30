@@ -1,168 +1,91 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Talento Troyano – Perfil Completo</title>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    <!-- CSS personalizado -->
-    <link rel="stylesheet" href="../css/prueba.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talento Troyano - Administrador</title>
+  <link rel="stylesheet" href="../css/prueba.css">
 </head>
 <body>
-    <div class="profile-container d-flex">
-        <!-- Sidebar -->
-        <aside class="sidebar bg-dark text-light p-3">
-            <div class="logo-area mb-4">
-                <div class="logo-circle d-flex justify-content-center align-items-center">
-                    <img src="../logo.png" alt="Logotipo Talento Troyano">
-                </div>
-            </div>
-            <nav class="profile-nav">
-                <ul class="list-unstyled">
-                    <li class="active" data-tab="personal"><i class="fas fa-user"></i> Información personal</li>
-                    <li data-tab="contacto"><i class="fas fa-phone"></i> Contacto</li>
-                    <li data-tab="curriculum"><i class="fas fa-file-alt"></i> Currículum</li>
-                    <li data-tab="foto"><i class="fas fa-camera"></i> Foto de perfil</li>
-                </ul>
-            </nav>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="main-content flex-grow-1 p-4">
-            <!-- PERSONAL -->
-            <section id="tab-personal" class="content-tab active">
-                <header class="content-header mb-4">
-                    <h1>¡Completa tu perfil!</h1>
-                    <p>Tu información nos ayudará a conectarte con las mejores oportunidades para tu perfil.</p>
-                </header>
-                <form class="profile-form">
-                    <div class="form-grid">
-                        <div class="input-field full-width"> <i class="fas fa-user"></i> <input type="text" placeholder="Nombre(s)" required> </div>
-                        <div class="input-field"> <i class="fas fa-user"></i> <input type="text" placeholder="Apellido paterno" required> </div>
-                        <div class="input-field"> <i class="fas fa-user"></i> <input type="text" placeholder="Apellido materno" required> </div>
-                        <div class="input-field"> <i class="fas fa-venus-mars"></i> <input type="text" placeholder="Género" required> </div>
-                        <div class="input-field"> <i class="fas fa-graduation-cap"></i> <input type="text" placeholder="Carrera" required> </div>
-                        <div class="input-field"> <i class="fas fa-calendar-alt"></i> <input type="text" placeholder="Edad" required> </div>
-                    </div>
-                    <div class="form-actions d-flex justify-content-between">
-                        <button type="button" class="btn btn-secondary">Omitir</button>
-                        <button type="button" class="btn btn-primary">Siguiente</button>
-                    </div>
-                </form>
-            </section>
-
-            <!-- CONTACTO -->
-            <section id="tab-contacto" class="content-tab">
-                <header class="content-header mb-4">
-                    <h1>¡Completa tu perfil!</h1>
-                    <p>Sube tu información de contacto para que las empresas te contacten</p>
-                </header>
-                <form class="contact-form">
-                    <div class="form-grid">
-                        <div class="input-field full-width"> <i class="fas fa-phone-alt"></i> <input type="tel" placeholder="Celular" name="celular" required> </div>
-                        <div class="input-field"> <i class="fab fa-github"></i> <input type="url" placeholder="Github" name="github"> </div>
-                        <div class="input-field"> <i class="fab fa-linkedin-in"></i> <input type="url" placeholder="LinkedIn" name="linkedin"> </div>
-                        <div class="input-field"> <i class="fab fa-blogger-b"></i> <input type="url" placeholder="Blog" name="blog"> </div>
-                        <div class="input-field"> <i class="fas fa-envelope"></i> <input type="email" placeholder="Correo" name="correo" required> </div>
-                    </div>
-                    <div class="form-actions d-flex justify-content-between">
-                        <button type="button" class="btn btn-secondary">Omitir</button>
-                        <button type="button" class="btn btn-primary">Siguiente</button>
-                    </div>
-                </form>
-            </section>
-
-            <!-- CURRICULUM -->
-            <section id="tab-curriculum" class="content-tab">
-                <header class="content-header mb-4">
-                    <h1>¡Completa tu perfil!</h1>
-                    <p>Sube tu currículum en formato <strong>pdf</strong> y con un <strong>máximo de 5 MB</strong></p>
-                </header>
-                <div class="upload-area-wrapper text-center">
-                    <div id="curriculum-upload-state" class="upload-state active">
-                        <label for="curriculum-upload" class="upload-dropzone">
-                            <i class="fas fa-arrow-up"></i>
-                        </label>
-                        <input id="curriculum-upload" type="file" accept=".pdf" style="display: none;">
-                    </div>
-                    <div id="curriculum-error-docx" class="upload-state error">
-                        <div class="file-name-bar error">CV_EJEMPLO.DOCX <i class="fas fa-times"></i></div>
-                        <p class="file-message">Revisa el formato del documento y vuelve a intentarlo</p>
-                        <div class="upload-icon-box error">
-                            <i class="fas fa-times fa-4x"></i>
-                        </div>
-                    </div>
-                    <div id="curriculum-success" class="upload-state success">
-                        <div class="file-name-bar success">CV_EJEMPLO.PDF <i class="fas fa-times"></i></div>
-                        <p class="file-message">¡Currículum subido con éxito!</p>
-                        <div class="upload-icon-box success">
-                            <i class="fas fa-check fa-4x"></i>
-                        </div>
-                        <div class="form-actions">
-                            <button type="button" class="btn btn-primary siguiente-btn">Siguiente</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- FOTO -->
-            <section id="tab-foto" class="content-tab">
-                <header class="content-header mb-4">
-                    <h1>¡Completa tu perfil!</h1>
-                    <p>Sube una foto de perfil en formato <strong>jpeg o png</strong> para terminar la configuración de tu perfil</p>
-                </header>
-                <div class="upload-area-wrapper text-center">
-                    <div id="foto-upload-state" class="upload-state active">
-                        <label for="foto-upload" class="upload-dropzone">
-                            <i class="fas fa-arrow-up"></i>
-                        </label>
-                        <input id="foto-upload" type="file" accept="image/jpeg, image/png" style="display: none;">
-                    </div>
-                    <div id="foto-error-raw" class="upload-state error">
-                        <div class="file-name-bar error">FOTO_DE_PERFIL_EJEMPLO.RAW <i class="fas fa-times"></i></div>
-                        <p class="file-message">Revisa el formato de la foto y vuelve a intentarlo</p>
-                        <div class="upload-icon-box error">
-                            <i class="fas fa-times fa-4x"></i>
-                        </div>
-                    </div>
-                    <div id="foto-success" class="upload-state success">
-                        <div class="file-name-bar success">FOTO_DE_PERFIL_EJEMPLO.JPG <i class="fas fa-times"></i></div>
-                        <p class="file-message">¡Tu foto se cargó con éxito!</p>
-                        <div class="upload-icon-box success">
-                            <i class="fas fa-check fa-4x"></i>
-                        </div>
-                        <div class="form-actions">
-                            <button type="button" class="btn btn-primary finalizar-btn">Finalizar</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-    </div>
-
-    <!-- Modal Guardado Exitoso -->
-    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content text-center p-4">
-          <div class="modal-body">
-            <i class="fas fa-check-circle fa-3x text-success mb-3"></i>
-            <h5 class="modal-title mb-3" id="successModalLabel">¡Guardado exitosamente!</h5>
-            <button type="button" class="btn btn-primary me-2" data-bs-dismiss="modal">Aceptar</button>
-            <a href="index.html" class="btn btn-success">Ir a inicio</a>
-          </div>
-        </div>
+  <!-- Pantalla 1: Administrador empresa -->
+  <section class="screen active" id="admin">
+    <header>
+      <h2>💼 Talento Troyano</h2>
+      <div class="user">Administrador empresa ⚙️</div>
+    </header>
+    <div class="profile">
+      <div class="avatar"></div>
+      <h3>Nombre empresa</h3>
+      <div class="buttons">
+        <button class="btn">Vacante creada</button>
+        <button class="btn" id="nuevaVacanteBtn">Nueva vacante</button>
+        <button class="btn">Postulantes</button>
+        <button class="btn">Estadísticas</button>
       </div>
     </div>
+  </section>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- JS personalizado -->
-    <script src="../JavaScripts/prueba.js"></script>
+  <!-- Pantalla 2: Nueva vacante - Detalles -->
+  <section class="screen" id="step1">
+    <header><h2>Talento Troyano</h2><div class="user">Administrador empresa</div></header>
+    <h3>Nueva vacante</h3>
+    <div class="form-grid">
+      <div class="form-left">
+        <label>Título<input type="text" id="titulo"></label>
+        <label>Contratación<input type="text" id="contratacion"></label>
+        <label>Horario<input type="text" id="horario"></label>
+        <label>Modalidad<input type="text" id="modalidad"></label>
+      </div>
+      <div class="form-right">
+        <label>Correo<input type="email" id="correo"></label>
+        <label>Ubicación<input type="text" id="ubicacion"></label>
+        <label>Salario<input type="text" id="salario"></label>
+      </div>
+    </div>
+    <button class="next" id="toStep2">Siguiente</button>
+  </section>
+
+  <!-- Pantalla 3: Descripción y Requisitos -->
+  <section class="screen" id="step2">
+    <header><h2>Talento Troyano</h2><div class="user">Administrador empresa</div></header>
+    <h3>Nueva vacante</h3>
+    <div class="form-grid">
+      <div class="form-left">
+        <label>Descripción<textarea id="descripcion"></textarea></label>
+      </div>
+      <div class="form-right">
+        <label>Requisitos<textarea id="requisitos"></textarea></label>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="prev" id="backToStep1">Anterior</button>
+      <button class="next" id="toStep3">Siguiente</button>
+    </div>
+  </section>
+
+  <!-- Pantalla 4: Resumen -->
+  <section class="screen" id="step3">
+    <header><h2>Talento Troyano</h2><div class="user">Administrador empresa</div></header>
+    <h3>Nueva vacante</h3>
+    <div class="summary-box">
+      <p id="resumenTexto"></p>
+    </div>
+    <div class="actions">
+      <button class="prev" id="backToStep2">Regresar</button>
+      <button class="next" id="publicarBtn">Publicar vacante</button>
+    </div>
+  </section>
+
+  <!-- Pantalla final: Éxito -->
+  <section class="screen" id="success">
+    <div class="checkmark">
+      <div class="circle"></div>
+      <div class="tick">✔</div>
+    </div>
+    <h2>Vacante publicada con éxito</h2>
+    <button class="next" id="volverInicio">Volver al inicio</button>
+  </section>
+
+  <script src="../JavaScripts/prueba.js"></script>
 </body>
 </html>
