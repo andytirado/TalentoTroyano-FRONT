@@ -1,61 +1,16 @@
-/* --- Contenedor Principal de Pantalla --- */
-/* * NOTA: La sección global de '*' y 'body' se ha eliminado. 
- * Asegúrate de enlazar 'global.css' en tu HTML.
- */
- .pantalla {
-    width: 100%;
-    max-width: 900px;
-    height: 500px;
-    background-color: #ebebeb; /* Fondo de la tarjeta */
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    border: 1px solid #444444;
-    /* * OJO: 'display: hidden;' no es válido. 
-     * Lo he quitado. Si quieres ocultarlo, usa 'display: none;' 
-     * (y contrólalo con JS) o simplemente quita la línea.
-     */
-    display: flex; /* Asumo que debe ser 'flex' si se muestra */
-    flex-direction: column;
-    max-height: 90vh;
-}
+/* --- Estilos Específicos de EMPRESA.HTML --- */
+/* Estos estilos complementan a global.css */
 
-/* --- Cabecera de Pantalla --- */
-.pantalla-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 1.5rem;
-    background-color: #ebebeb;
-    border-bottom: 1px solid #444;
-}
-.logo-app{
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-.logo-app .logo-icon {
-    width: 32px; /* Tamaño del icono */
-    height: 32px;
-}
 
-.logo-app h2 {
-    margin: 0;
-    font-size: 1.5rem; /* Tamaño del texto del logo */
-    color: #f0f0f0;
-}
-.pantalla-header h2 {
-    margin: 0;
-    font-size: 1.25rem;
-    color: #336699;
-}
-
+/* --- Cabecera del Formulario (Pasos 2-4) --- */
 .logo-titulo {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
-
+h2{
+    color: #336699;
+}
 .breadcrumb {
     background-color: #336699; /* Azul primario */
     color: #ebebeb;
@@ -65,102 +20,8 @@
     font-weight: 500;
 }
 
-.user-info {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-.user-info img {
-    width: 24px;
-    height: 24px;
-    opacity: 0.8;
-    background-color: #336699;
-}
-
-.profile {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 0.8rem;
-    text-align: right;
-    color: #336699;
-}
-
-.avatar {
-    width: 36px;
-    height: 36px;
-    background-color: #336699;
-    border-radius: 50%;
-    border: 2px solid #283747;
-}
-
-/* --- Contenido de Pantalla --- */
-.pantalla-content {
-    align-items: center;
-    padding: 1.5rem;
-    background-color: #ebebeb; /* Fondo de contenido ligeramente más claro */
-    top: 120px;
-    flex: 1;
-    overflow-y:scroll;
-}
-
-/* --- Pie de Página de Pantalla --- */
-.pantalla-footer {
-    padding: 1rem 1.5rem;
-    background-color: #ebebeb;
-    border-top: 1px solid #283747;
-    display: flex;
-    justify-content: flex-end; /* Alinea botón a la derecha por defecto */
-}
-
-.pantalla-footer.split {
-    justify-content: space-between;
-}
-/* Fuerza al 'a' en el grid a tener el mismo tamaño */
-/* Esta regla es redundante si arreglamos .btn y .btn-secondary, la elimino */
-/*
-.dashboard-grid a.btn-secondary {
-    display: flex;
-    text-align: center;
-    padding: 1rem;
-    min-height: 80px;
-    align-items: center;
-    justify-content: center;
-}
-*/
-/* --- Botones --- */
-.btn {
-    background-color: #336699; /* Azul primario */
-    color: #ebebeb;
-    border: none;
-    padding: 0.75rem 1.25rem;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s, transform 0.1s;
-}
-/* Asegura que los enlaces-botones no tengan subrayado */
-a.btn, a.btn-secondary {
-    text-decoration: none;
-}
-.btn:hover {
-    background-color: #336699;
-}
-.btn:active {
-    transform: scale(0.98);
-}
-
-.btn-secondary {
-    background-color: #283747; /* Azul/gris oscuro */
-    color: #ebebeb;
-}
-
-.btn-secondary:hover {
-    background-color: #336699;
-}
-
-/* --- Formularios (Inputs y Textareas) --- */
+/* --- Inputs y Textareas Generales del Formulario --- */
+/* (Estilos base para los campos de los formularios) */
 input[type="text"],
 textarea {
     width: 100%;
@@ -184,16 +45,13 @@ textarea::placeholder {
     opacity: 0.8;
 }
 
-/* --- Estilos Específicos de Pantalla --- */
-
-/* Dashboard (Pantalla 1) */
+/* --- Dashboard (Pantalla 1) --- */
 .dashboard-content {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 1.5rem;
     align-items: flex-start;
     margin-top: 1rem;
-
 }
 
 .sidebar-izquierdo {
@@ -201,7 +59,6 @@ textarea::placeholder {
     flex-direction: column;
     gap: 1.5rem;
     align-items: center; /* Centra los elementos de la barra lateral */
-
 }
 
 .empresa-logo-grande {
@@ -249,7 +106,6 @@ textarea::placeholder {
     margin: 0;
 }
 
-
 .contenido-derecho {
     display: flex;
     flex-direction: column;
@@ -270,7 +126,7 @@ textarea::placeholder {
 .input-filtros {
     flex-grow: 1; /* Ocupa el espacio restante */
     background-color: transparent; /* Fondo transparente para el input */
-    border: none;
+    border: none; /* Sobrescribe el estilo general de input */
     padding: 0.75rem 1rem;
     color: white;
     font-size: 1rem;
@@ -281,7 +137,6 @@ textarea::placeholder {
 }
 .input-filtros:focus {
     outline: none;
-    /* border-bottom: 1px solid #5a9ac8; */ /* Puedes añadir un borde inferior al enfocar */
 }
 
 .btn-filtro {
@@ -308,77 +163,31 @@ textarea::placeholder {
 .btn-add-vacante img {
     width: 32px; /* Ícono de más grande */
     height: 32px;
-    color: white; /* Asegura que el ícono sea blanco */
 }
 .btn-add-vacante:hover img {
     opacity: 0.8;
 }
-.empresa-info {
-    background-color: #3C5A74;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 160px; /* Altura de los botones */
-    font-size: 1.1rem;
-    color: #ccc;
-    padding: 1rem;
-}
 
+/* Grid de Botones Dashboard (Enlaces <a>) */
 .dashboard-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
 }
 
-/* ================================================= */
-/* AQUÍ ESTÁ LA CORRECCIÓN */
-/* ================================================= */
-
-.dashboard-grid .btn {
+/* Estilo para los <a> que son botones en el grid */
+.dashboard-grid a.btn,
+.dashboard-grid a.btn-secondary {
     text-align: center;
-    /* --- Añadido para igualar la altura y alineación --- */
     padding: 1rem;
     min-height: 80px; 
     display: flex;
     align-items: center;
     justify-content: center;
-    /* --- Fin de la adición --- */
 }
 
-.dashboard-grid .btn-secondary {
-    text-align: left; /* 'justify-content: center' anula esto si es flex */
-    padding: 1rem;
-    min-height: 80px; /* Para que los botones sean más altos */
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Centrar el texto en botones más altos */
-}
-/* ================================================= */
-/* FIN DE LA CORRECCIÓN */
-/* ================================================= */
 
-
-/* Estilo para los inputs y textareas generales (asegurarse de que .input-filtros no lo herede mal) */
-input[type="text"]:not(.input-filtros), /* Excluye el input de filtros */
-textarea {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    background-color: #3C5A74;
-    border: 1px solid #4A7A9F;
-    border-radius: 6px;
-    color: white;
-    font-size: 1rem;
-}
-
-/* Formulario (Pantallas 2, 3, 4) */
-.form-content .btn-secondary {
-    width: 100%;
-    text-align: center;
-    padding: 1rem;
-    margin-bottom: 0.5rem;
-}
-
+/* --- Formularios (Pantallas 2, 3, 4) --- */
 .form-paso1,
 .form-paso2 {
     display: grid;
@@ -394,13 +203,13 @@ textarea {
 
 /* Pantalla 3 (Descripción) */
 .form-paso2 .form-col {
-    gap: 0.5rem; /* Menor espacio entre botón y textarea */
+    gap: 0.5rem; /* Menor espacio entre título y textarea */
 }
 
 /* Pantalla 4 (Resumen) */
 .resumen-texto {
-    background-color: #fff;
-    color: #333;
+    background-color: #fff; /* Fondo blanco para el resumen */
+    color: #333; /* Texto oscuro para legibilidad */
     padding: 1.5rem;
     border-radius: 6px;
     margin-top: 1rem;
@@ -410,19 +219,20 @@ textarea {
 .resumen-texto p {
     margin-bottom: 1em;
 }
-/* --- Pantalla de Éxito (¡NUEVO!) --- */
+
+/* --- Pantalla de Éxito --- */
 .success-content {
     text-align: center;
-    padding: 4rem 1.5rem; /* Más padding para centrarlo verticalmente */
+    padding: 4rem 1.5rem;
 }
 
 .success-content h2 {
     margin-top: 1.5rem;
     margin-bottom: 2rem;
-    color: #336699; /* Aseguramos texto blanco */
+    color: #336699; /* Color de título azul */
 }
 
-/* ✅ Animación check verde (Tu código) */
+/* Animación check verde */
 .checkmark {
     position: relative;
     display: inline-block;
@@ -441,11 +251,11 @@ textarea {
 .tick {
     position: absolute;
     top: 10px;
-    left: 0; /* Centrado horizontal */
-    right: 0; /* Centrado horizontal */
+    left: 0; 
+    right: 0; 
     font-size: 60px;
     color: #28a745;
-    animation: appear 0.6s 0.2s ease forwards; /* Añadido un delay de 0.2s */
+    animation: appear 0.6s 0.2s ease forwards;
     opacity: 0;
 }
 
@@ -456,4 +266,25 @@ textarea {
 @keyframes pop {
     0% { transform: scale(0.8); opacity: 0; }
     100% { transform: scale(1); opacity: 1; }
+}
+
+
+/* ================================================= */
+/* Títulos de Sección del Formulario (AÑADIDO)
+/* =Imprescindible para que los <div> se vean bien
+/* ================================================= */
+.form-section-title {
+    text-align: center;
+    cursor: default; /* Quita la manita de "click" */
+    margin-bottom: 0.5rem;
+}
+
+/* Anula el efecto hover que viene de global.css */
+.form-section-title:hover {
+    background-color: #283747; /* Mantiene el color original de .btn-secondary */
+    transform: none; /* Quita cualquier efecto */
+}
+
+.form-section-title:active {
+    transform: none; /* Quita el efecto de click */
 }

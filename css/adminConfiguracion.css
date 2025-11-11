@@ -1,0 +1,99 @@
+/* css/adminConfiguracion.css */
+
+/* Contenedor principal del formulario en <main> */
+.form-configuracion {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Espacio entre secciones */
+}
+
+/* La "tarjeta" que envuelve cada sección */
+.form-seccion {
+    background-color: #3C5A74; 
+    border: 1px solid #4A7A9F;
+    padding: 1.5rem 2rem;
+    border-radius: 6px;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem; /* Espacio entre grupos de formulario */
+}
+
+/* Título de cada tarjeta (Sección 1, Sección 2...) */
+.seccion-titulo {
+    font-size: 1.25rem;
+    color: #ebebeb; 
+    margin: 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #4A7A9F; /* Línea divisora */
+}
+
+/* Contenedor para un par de <label> e <input> */
+.form-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Espacio entre la etiqueta y el input */
+}
+
+.form-grupo label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #b0c4d4; 
+}
+
+/* Estilos para inputs (de globalAdmin.css) aplicados a password */
+input[type="password"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: #3C5A74;
+    border: 1px solid #4A7A9F;
+    border-radius: 6px;
+    color: white;
+    font-size: 1rem;
+}
+input[type="password"]::placeholder {
+    color: #b0c4d4;
+    opacity: 0.8;
+}
+
+/* Grid simple para poner 2 inputs en la misma fila */
+.input-grid-col-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* Estilos para el cargador de foto de perfil */
+.profile-pic-uploader .uploader-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background-color: #283747; /* Fondo oscuro sutil */
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+.profile-pic-uploader .current-avatar {
+    width: 80px;  
+    height: 80px;
+    border-radius: 50%;
+    background-color: #3C5A74;
+    border: 3px solid #ebebeb;
+    flex-shrink: 0;
+    background-size: cover;
+    background-position: center;
+}
+
+.profile-pic-uploader .uploader-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+}
+
+.profile-pic-uploader .uploader-actions p {
+    font-size: 0.85rem;
+    color: #b0c4d4;
+    margin: 0;
+    line-height: 1.4;
+}

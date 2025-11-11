@@ -1,0 +1,199 @@
+/* --- Estilos específicos de ESTADISTICAS.HTML --- */
+
+/* Título y Filtro de Fecha */
+.page-title-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #336699;
+    padding-bottom: 1rem;
+}
+.page-title-bar h2 {
+    color: #336699;
+    margin: 0;
+}
+
+.date-filter-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.date-filter-container label {
+    font-size: 0.9rem;
+    color: #03204E;
+    font-weight: 500;
+}
+.date-select {
+    font-family: inherit;
+    background-color: #283747; /* Azul oscuro del search */
+    color: #ebebeb;
+    border: 1px solid #336699;
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+}
+.date-select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #336699;
+}
+
+/* --- Sección 1: KPIs (Indicadores Clave) --- */
+.kpi-grid {
+    display: grid;
+    /* 4 columnas en desktop, 2 en tablet, 1 en móvil */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.kpi-card {
+    background-color: #3C5A74; /* Color azul oscuro de las tarjetas */
+    color: #ebebeb;
+    padding: 1.5rem;
+    border-radius: 6px;
+    border: 1px solid #4A7A9F;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.kpi-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 0.75rem;
+}
+.kpi-value {
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.1;
+}
+.kpi-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* --- Sección 2: Resumen y Destacados --- */
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #03204E;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.insight-card {
+    background-color: #3C5A74; /* Azul oscuro */
+    color: #ebebeb;
+    padding: 1.5rem;
+    border-radius: 6px;
+    border: 1px solid #4A7A9F;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.insight-card h4 {
+    margin: 0 0 1rem 0;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #336699;
+    padding-bottom: 0.5rem;
+}
+
+/* Estilo para la tarjeta de vacante popular (reutiliza clases) */
+.popular-job-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #283747; /* Un poco más oscuro */
+    padding: 1rem;
+    border-radius: 4px;
+}
+.popular-job-card .vacante-info h5 {
+    font-size: 1rem; margin: 0 0 0.25rem 0;
+}
+.popular-job-card .vacante-info p {
+    font-size: 0.8rem; margin: 0; opacity: 0.8;
+}
+.popular-job-card .vacante-stats {
+    text-align: center;
+    padding-left: 1rem;
+    border-left: 1px solid #336699;
+}
+.popular-job-card .vacante-stats strong {
+    font-size: 1.75rem; display: block;
+}
+.popular-job-card .vacante-stats span {
+    font-size: 0.75rem; text-transform: uppercase;
+}
+
+/* Estilo para el resumen salarial */
+.salary-summary {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding-top: 0.5rem;
+}
+.salary-item span {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+.salary-item strong {
+    display: block;
+    font-size: 1.5rem;
+    color: #a7f3d0; /* Verde claro para destacar */
+}
+
+/* --- Sección 3: Gráficos --- */
+.charts-grid {
+    display: grid;
+    /* Columna principal más ancha que la secundaria */
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+}
+
+/* En desktop, usamos un layout más complejo */
+@media (min-width: 992px) {
+    .charts-grid {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+.charts-small-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.chart-container-large,
+.chart-container-small {
+    background-color: #3C5A74; /* Azul oscuro */
+    color: #ebebeb;
+    padding: 1.5rem;
+    border-radius: 6px;
+    border: 1px solid #4A7A9F;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.chart-container-large h4,
+.chart-container-small h4 {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #336699;
+    padding-bottom: 0.5rem;
+}
+
+.chart-placeholder {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    opacity: 0.7;
+}

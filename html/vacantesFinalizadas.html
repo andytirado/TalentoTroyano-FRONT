@@ -3,173 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vacantes Finalizadas</title>
-    
-    <!-- CSS Global y de la Página -->
+    <title>Vacantes Finalizadas - Talento Troyano</title>
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/vacantesFinalizadas.css">
-    
-    <!-- Biblioteca de Iconos (Lucide) -->
-    <script src="https://unpkg.com/lucide@latest/dist/lucide.min.js"></script>
-
-    <!-- JS de la Aplicación (defer asegura que se cargue después del HTML) -->
-    <script src="app.js" defer></script>
 </head>
 <body>
 
-    <div class="container">
-        
-        <!-- 1. Cabecera y Controles -->
-        <header class="page-header">
-            <h1 class="page-title">Vacantes Finalizadas</h1>
-            
-            <div class="controls-container">
-                <!-- Barra de Búsqueda -->
-                <div class="search-wrapper">
-                    <i data-lucide="search" class="search-icon"></i>
-                    <input 
-                        type="text" 
-                        placeholder="Buscar por título, ID o departamento..." 
-                        class="search-input"
-                    />
+    <div class="pantalla" id="vacantesFinalizadas">
+        <header class="pantalla-header">
+            <div class="logo-app">
+                <img src="../icons/logo.png" alt="Logo Talento Troyano" class="logo-icon">
+                <h2>
+                    <span class="titulo1">Talento</span>
+                    <span class="titulo2">Troyano</span>
+                </h2>
+            </div>
+            <div class="user-info">
+                <span><img src="../icons/notificacion.svg" alt="notificaciones"></span>
+                <span><img src="../icons/mensaje.svg" alt="mensajes"></span>
+                <div class="profile">
+                    <span>Administrador<br>empresa</span>
+                    <div class="avatar"></div>
                 </div>
-                
-                <!-- Botón de Filtro -->
-                <button class="button button-filter">
-                    <i data-lucide="sliders-horizontal" class="button-icon"></i>
-                    <span>Filtros</span>
-                </button>
             </div>
         </header>
 
-        <!-- 2. Lista de Vacantes Finalizadas -->
-        <main class="vacancy-list">
+        <main class="pantalla-content">
+            <div class="page-title-bar">
+                <h2>Vacantes Finalizadas</h2>
+                <div class="search-bar-container">
+                    <input type="text" class="search-input" placeholder="Buscar vacante por título...">
+                    <img src="../icons/search.svg" class="search-icon">
+                </div>
+            </div>
 
-            <!-- Tarjeta de Vacante: CONTRATADA -->
-            <article class="vacancy-card">
-                <div class="card-content">
-                    <!-- Cabecera de la tarjeta -->
-                    <div class="card-header">
+            <div class="lista-vacantes">
+                
+                <div class="vacante-card status-contratada">
+                    <div class="vacante-info">
+                        <h4>Desarrollador Front-End (React)</h4>
+                        <p>Tiempo Completo | Remoto | Finalizada: 28/10/2025</p>
+                    </div>
+                    <div class="vacante-stats">
+                        <strong>25</strong>
+                        <span>Postulantes</span>
+                    </div>
+                    <div class="vacante-resultado">
+                        <img src="../icons/postulacion-on.svg" class="icon-resultado">
                         <div>
-                            <h2 class="card-title">Desarrollador Full-Stack Sr. (Node/React)</h2>
-                            <p class="card-subtitle">Publicada por: Carlos Mendoza</p>
-                        </div>
-                        <!-- Etiqueta de Estado: Contratada -->
-                        <div class="status-badge status-hired">
-                            <i data-lucide="check-circle" class="badge-icon"></i>
-                            Contratada
+                            <span>Contratado</span>
+                            <strong>Ana Torres</strong>
                         </div>
                     </div>
+                    <div class="vacante-acciones">
+                        <button class="btn-accion-vacante" title="Ver Detalles"><img src="../icons/observar.svg"></button>
+                        <button class="btn-accion-vacante" title="Clonar Vacante"><img src="../icons/editar.svg"></button>
+                    </div>
+                </div>
 
-                    <!-- Detalles y Estadísticas Clave -->
-                    <div class="card-details-grid">
-                        <div class="detail-item">
-                            <span class="detail-label">Departamento</span>
-                            <p class="detail-value">
-                                <i data-lucide="building-2" class="detail-icon"></i>
-                                Ingeniería
-                            </p>
+                <div class="vacante-card status-cancelada">
+                    <div class="vacante-info">
+                        <h4>Diseñador UX/UI Senior</h4>
+                        <p>Medio Tiempo | Híbrido | Cancelada: 25/10/2025</p>
+                    </div>
+                    <div class="vacante-stats">
+                        <strong>8</strong>
+                        <span>Postulantes</span>
+                    </div>
+                    <div class="vacante-resultado">
+                        <img src="../icons/cancelada.svg" class="icon-resultado">
+                        <div>
+                            <span>Estado</span>
+                            <strong>Cancelada</strong>
                         </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Finalizada</span>
-                            <p class="detail-value">
-                                <i data-lucide="calendar-check" class="detail-icon"></i>
-                                15 de Oct, 2025
-                            </p>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Total Aplicantes</span>
-                            <p class="detail-value">
-                                <i data-lucide="users" class="detail-icon"></i>
-                                128
-                            </p>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Seleccionado</span>
-                            <p class="detail-value detail-value-highlight">
-                                <i data-lucide="user-check" class="detail-icon-highlight"></i>
-                                Ana Gabriela Pérez
-                            </p>
-                        </div>
+                    </div>
+                    <div class="vacante-acciones">
+                        <button class="btn-accion-vacante" title="Ver Detalles"><img src="../icons/observar.svg"></button>
+                        <button class="btn-accion-vacante" title="Clonar Vacante"><img src="../icons/editar.svg"></button>
                     </div>
                 </div>
                 
-                <!-- Pie de Tarjeta: Acciones -->
-                <footer class="card-footer">
-                    <button class="button button-secondary">
-                        Ver Detalles
-                    </button>
-                    <button class="button button-primary">
-                        <i data-lucide="copy" class="button-icon"></i>
-                        Clonar Vacante
-                    </button>
-                </footer>
-            </article>
-
-            <!-- Tarjeta de Vacante: CANCELADA -->
-            <article class="vacancy-card">
-                <div class="card-content">
-                    <!-- Cabecera de la tarjeta -->
-                    <div class="card-header">
+                <div class="vacante-card status-contratada">
+                    <div class="vacante-info">
+                        <h4>Back-End Developer (Node.js)</h4>
+                        <p>Tiempo Completo | Presencial | Finalizada: 22/10/2025</p>
+                    </div>
+                    <div class="vacante-stats">
+                        <strong>42</strong>
+                        <span>Postulantes</span>
+                    </div>
+                    <div class="vacante-resultado">
+                        <img src="../icons/postulacion-on.svg" class="icon-resultado">
                         <div>
-                            <h2 class="card-title">Analista de Marketing Digital Jr.</h2>
-                            <p class="card-subtitle">Publicada por: Laura Torres</p>
-                        </div>
-                        <!-- Etiqueta de Estado: Cancelada -->
-                        <div class="status-badge status-cancelled">
-                            <i data-lucide="x-circle" class="badge-icon"></i>
-                            Cancelada
+                            <span>Contratado</span>
+                            <strong>Carlos Mendoza</strong>
                         </div>
                     </div>
-
-                    <!-- Detalles y Estadísticas Clave -->
-                    <div class="card-details-grid">
-                        <div class="detail-item">
-                            <span class="detail-label">Departamento</span>
-                            <p class="detail-value">
-                                <i data-lucide="building-2" class="detail-icon"></i>
-                                Marketing
-                            </p>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Cancelada</span>
-                            <p class="detail-value">
-                                <i data-lucide="calendar-x" class="detail-icon"></i>
-                                01 de Oct, 2025
-                            </p>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Total Aplicantes</span>
-                            <p class="detail-value">
-                                <i data-lucide="users" class="detail-icon"></i>
-                                42
-                            </p>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Motivo</span>
-                            <p class="detail-value" title="Presupuesto reasignado a otra área.">
-                                Reajuste de presupuesto
-                            </p>
-                        </div>
+                    <div class="vacante-acciones">
+                        <button class="btn-accion-vacante" title="Ver Detalles"><img src="../icons/observar.svg"></button>
+                        <button class="btn-accion-vacante" title="Clonar Vacante"><img src="../icons/editar.svg"></button>
                     </div>
                 </div>
-                
-                <!-- Pie de Tarjeta: Acciones -->
-                <footer class="card-footer">
-                    <button class="button button-secondary">
-                        Ver Detalles
-                    </button>
-                    <button class="button button-primary">
-                        <i data-lucide="copy" class="button-icon"></i>
-                        Clonar Vacante
-                    </button>
-                </footer>
-            </article>
 
-            <!-- Más tarjetas irían aquí... -->
-
+            </div>
         </main>
+        
+        <footer class="pantalla-footer">
+            <a href="empresa.html" class="btn btn-secondary">Regresar al Dashboard</a>
+        </footer>
     </div>
+    
     <script src="../JavaScripts/vacantesFinalizadas.js"></script>
-</body>
+    </body>
 </html>

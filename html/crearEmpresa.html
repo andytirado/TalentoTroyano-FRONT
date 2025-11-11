@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Empresa - Admin</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/globalAdmin.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+
+    <div class="pantalla" id="adminPantallaCrearEmpresa">
+        <header class="pantalla-header">
+            <div class="logo-titulo">
+                <img src="../icons/logo.png" alt="Logo" class="logo-icon-header">
+                <h2><span class="titulo1">Talento</span><span class="titulo2">Troyano</span></h2>
+                <span class="breadcrumb">Crear Empresa</span>
+            </div>
+             <div class="user-info">
+                <span><img src="../icons/notificacion.svg" alt="notificaciones"></span>
+                <span><img src="../icons/mensaje.svg" alt="mensajes"></span>
+                <div class="profile">
+                    <span>Administrador<br>Universidad</span>
+                    <div class="avatar"></div>
+                </div>
+            </div>
+        </header>
+        <main class="pantalla-content form-content">
+            <form class="form-paso1" onsubmit="return false;">
+                <div class="form-col">
+                    <div class="btn btn-secondary form-section-title">Información de la Empresa</div>
+                    
+                    <input type="text" id="empresa-nombre" placeholder="Nombre de la Empresa">
+                    <span class="error-msg" id="error-nombre" style="display: none;"></span>
+        
+                    <input type="text" id="empresa-rfc" placeholder="RFC">
+                    <span class="error-msg" id="error-rfc" style="display: none;"></span>
+        
+                    <input type="text" id="empresa-industria" placeholder="Industria (Ej. Tecnología)">
+                    </div>
+                <div class="form-col">
+                    <div class="btn btn-secondary form-section-title">Datos del Reclutador</div>
+                    
+                    <input type="text" id="empresa-reclutador" placeholder="Nombre del Reclutador">
+                    <span class="error-msg" id="error-reclutador" style="display: none;"></span>
+        
+                    <input type="email" id="empresa-email" placeholder="Email de Contacto">
+                    <span class="error-msg" id="error-email" style="display: none;"></span>
+        
+                    <input type="text" id="empresa-password" placeholder="Contraseña Temporal">
+                    <span class="error-msg" id="error-password" style="display: none;"></span>
+                </div>
+            </form>
+        </main>
+        <footer class="pantalla-footer split">
+            <a href="admin.html" class="btn btn-secondary">Regresar</a>
+            <button class="btn" id="btn-guardar-empresa">Guardar Empresa</button>
+        </footer>
+    </div>
+    <div class="pantalla" id="success" style="display: none;">
+        <main class="pantalla-content success-content">
+            <div class="checkmark">
+                <div class="circle"></div>
+                <div class="tick">✔</div>
+            </div>
+            <h2>Empresa guardada con éxito</h2>
+            <button class="btn" id="volverInicio">Volver al inicio</button>
+        </main>
+    </div>
+
+    
+    <script src="../JavaScripts/crearEmpresa.js"></script>
+</body>
+</html>

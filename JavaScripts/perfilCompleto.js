@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const navItems = document.querySelectorAll('.profile-nav li');
     const contentTabs = document.querySelectorAll('.content-tab');
-    const tabOrder = ['personal', 'contacto', 'curriculum', 'foto'];
+    
+    // CAMBIO: Añadida la nueva pestaña 'success'
+    const tabOrder = ['personal', 'contacto', 'curriculum', 'foto', 'success'];
 
     // Función principal para mostrar una pestaña específica
     function changeTab(tabId) {
@@ -13,6 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (activeNavItem) activeNavItem.classList.add('active');
         if (activeContent) activeContent.classList.add('active');
+
+        // Caso especial: si vamos a la pestaña de éxito, deseleccionamos el nav lateral
+        if (tabId === 'success') {
+             navItems.forEach(item => item.classList.remove('active'));
+        }
     }
 
     // 1. Listener para los clics en el menú lateral
@@ -22,32 +29,36 @@ document.addEventListener('DOMContentLoaded', () => {
             changeTab(tabId);
         });
     });
+    
     // ---------------------------
-    // VALIDACIÓN DE FORMULARIOS
+    // VALIDACIÓN DE FORMULARIOS (CAMBIO)
     // ---------------------------
     function validarFormulario(tab) {
-        const inputs = tab.querySelectorAll('input[required], select[required], textarea[required]');
+        // Busca solo inputs requeridos DENTRO de la pestaña actual
+        const inputs = tab.querySelectorAll('input[required]');
         let valido = true;
 
         // Eliminar mensajes anteriores
         tab.querySelectorAll('.error-msg').forEach(e => e.remove());
-        inputs.forEach(input => input.classList.remove('input-error'));
+        tab.querySelectorAll('.input-field.input-error').forEach(field => field.classList.remove('input-error'));
 
         inputs.forEach(input => {
             if (input.value.trim() === '') {
                 valido = false;
+                const inputField = input.closest('.input-field');
 
                 // Crear mensaje de error
                 const error = document.createElement('div');
                 error.className = 'error-msg';
                 error.textContent = 'Este campo es obligatorio';
 
-                // Agregar clase para borde rojo
-                input.classList.add('input-error');
-
-                // Insertar el mensaje
-                if (!input.nextElementSibling?.classList.contains('error-msg')) {
-                    input.insertAdjacentElement('afterend', error);
+                // Agregar clase para borde rojo al contenedor
+                if(inputField) {
+                    inputField.classList.add('input-error');
+                    // Insertar el mensaje después del input-field
+                    if (!inputField.nextElementSibling?.classList.contains('error-msg')) {
+                         inputField.insertAdjacentElement('afterend', error);
+                    }
                 }
             }
         });
@@ -58,48 +69,66 @@ document.addEventListener('DOMContentLoaded', () => {
     // Cuando el usuario escribe, quitar el error si corrige
     document.addEventListener('input', (e) => {
         const input = e.target;
-        if (input.classList.contains('input-error') && input.value.trim() !== '') {
-            input.classList.remove('input-error');
-            const errorMsg = input.nextElementSibling;
-            if (errorMsg && errorMsg.classList.contains('error-msg')) {
-                errorMsg.remove();
+        if (input.value.trim() !== '') {
+            const inputField = input.closest('.input-field');
+            if (inputField && inputField.classList.contains('input-error')) {
+                inputField.classList.remove('input-error');
+                const errorMsg = inputField.nextElementSibling;
+                if (errorMsg && errorMsg.classList.contains('error-msg')) {
+                    errorMsg.remove();
+                }
             }
         }
     });
+    
     // 2. Manejo de todos los botones "Siguiente" y "Finalizar"
-
-    // Seleccionamos TODOS los botones primarios (azules)
     document.querySelectorAll('.btn.primary').forEach(button => {
         
-        // El botón "Finalizar" de la última pestaña tiene una lógica especial,
-        // así que la manejamos primero y luego salimos.
+        // CAMBIO: Lógica del botón "Finalizar" actualizada
         if (button.classList.contains('finalizar-btn')) {
             button.addEventListener('click', () => {
-                alert("¡Perfil completado y enviado!");
+                // (Opcional: aquí podrías validar la subida de foto)
+                changeTab("success"); 
             });
             return; // Salta al siguiente botón
         }
 
-        // Esta lógica maneja el avance para:
-        // - Botones de Personal y Contacto
-        // - Botones "Siguiente" dentro del estado de éxito de Currículum
+        // CAMBIO: Lógica para "Siguiente" con validación
         button.addEventListener('click', () => {
             const currentTab = button.closest('.content-tab');
-            if (!currentTab) return; // Salir si no se encuentra la pestaña
+            if (!currentTab) return; 
+
+            // --- ¡AQUÍ ESTÁ LA VALIDACIÓN! ---
+            // Solo valida pestañas con un formulario que tenga la clase 'needs-validation'
+            const form = currentTab.querySelector('.needs-validation');
+            if (form && !validarFormulario(currentTab)) {
+                return; // Detiene si el formulario no es válido
+            }
+            // --- FIN DE LA VALIDACIÓN ---
 
             const currentId = currentTab.id.replace('tab-', '');
             const currentIndex = tabOrder.indexOf(currentId);
             
-            // Si hay una siguiente pestaña, avanzamos
             if (currentIndex < tabOrder.length - 1) {
                 const nextId = tabOrder[currentIndex + 1];
                 changeTab(nextId);
-            } else {
-                // Esto solo debería ocurrir si el botón Finalizar no tiene la clase correcta
-                alert("Ya estás en la última sección.");
             }
-             // ---------------------------
-    // VALIDACIÓN DE FOTO DE PERFIL
+        });
+    });
+
+    // CAMBIO: Añadido listener para el nuevo botón "Volver al inicio"
+    const btnVolver = document.getElementById('btn-volver-perfil');
+    if (btnVolver) {
+        btnVolver.addEventListener('click', () => {
+            changeTab('personal'); // Vuelve a la primera pestaña
+            // Opcional: podrías querer recargar la página
+            // location.reload(); 
+        });
+    }
+
+    // ---------------------------
+    // VALIDACIÓN DE FOTO DE PERFIL (CORREGIDO)
+    // (Movido fuera del bucle forEach)
     // ---------------------------
     const fotoInput = document.getElementById('foto-upload');
     const fotoUploadState = document.getElementById('foto-upload-state');
@@ -111,27 +140,22 @@ document.addEventListener('DOMContentLoaded', () => {
             const file = fotoInput.files[0];
             if (!file) return;
 
-            // Tamaño máximo 3MB
-            const maxSize = 3 * 1024 * 1024;
+            const maxSize = 3 * 1024 * 1024; // 3MB
             const validTypes = ['image/jpeg', 'image/png'];
 
-            // Ocultar todos los estados
             fotoUploadState.classList.remove('active');
             fotoSuccess.classList.remove('active');
             fotoError.classList.remove('active');
 
             if (!validTypes.includes(file.type)) {
-                // Tipo inválido
                 fotoError.querySelector('.file-name-bar').innerHTML = `${file.name} <i class="fas fa-times"></i>`;
                 fotoError.querySelector('.file-message').textContent = "Formato no permitido. Solo JPG o PNG.";
                 fotoError.classList.add('active');
             } else if (file.size > maxSize) {
-                // Tamaño excedido
                 fotoError.querySelector('.file-name-bar').innerHTML = `${file.name} <i class="fas fa-times"></i>`;
                 fotoError.querySelector('.file-message').textContent = "El archivo supera los 3 MB permitidos.";
                 fotoError.classList.add('active');
             } else {
-                // Éxito
                 fotoSuccess.querySelector('.file-name-bar').innerHTML = `${file.name} <i class="fas fa-check"></i>`;
                 fotoSuccess.querySelector('.file-message').textContent = "¡Foto subida con éxito!";
                 fotoSuccess.classList.add('active');
@@ -139,9 +163,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
     // ---------------------------
-    // VALIDACIÓN DE CURRÍCULUM
+    // VALIDACIÓN DE CURRÍCULUM (CORREGIDO)
+    // (Movido fuera del bucle forEach)
     // ---------------------------
     const curriculumInput = document.getElementById('curriculum-upload');
     const uploadState = document.getElementById('curriculum-upload-state');
@@ -153,25 +177,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const file = curriculumInput.files[0];
             if (!file) return;
 
-            const maxSize = 5 * 1024 * 1024; // 5MB máximo
+            const maxSize = 5 * 1024 * 1024; // 5MB
 
-            // Ocultar todos los estados
             uploadState.classList.remove('active');
             successState.classList.remove('active');
             errorState.classList.remove('active');
 
             if (file.type !== "application/pdf") {
-                // Error por tipo
                 errorState.querySelector('.file-name-bar').innerHTML = `${file.name} <i class="fas fa-times"></i>`;
                 errorState.querySelector('.file-message').textContent = "Revisa el formato del documento. Solo PDF permitido.";
                 errorState.classList.add('active');
             } else if (file.size > maxSize) {
-                // Error por tamaño
                 errorState.querySelector('.file-name-bar').innerHTML = `${file.name} <i class="fas fa-times"></i>`;
                 errorState.querySelector('.file-message').textContent = "El archivo supera los 5 MB permitidos.";
                 errorState.classList.add('active');
             } else {
-                // Éxito
                 successState.querySelector('.file-name-bar').innerHTML = `${file.name} <i class="fas fa-check"></i>`;
                 successState.querySelector('.file-message').textContent = "¡Currículum subido con éxito!";
                 successState.classList.add('active');
@@ -179,5 +199,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-        });
-    });

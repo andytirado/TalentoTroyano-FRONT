@@ -4,20 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Administrador</title>
+    
+    <!-- CAMBIO 1: Añadir el enlace a la fuente -->
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/empresa.css">
 </head>
 <body>
 
+    <!-- ============================================================ -->
+    <!-- Dashboard (Pantalla 1)                                     -->
+    <!-- ============================================================ -->
     <div class="pantalla" id="dashboard">
         <header class="pantalla-header">
             <div class="logo-app">
-                <img src="../logo.png" alt="Logo Talento Troyano" class="logo-icon">
-                <h2>Talento Troyano</h2>
+                <img src="../icons/logo.png" alt="Logo Talento Troyano" class="logo-icon">
+                <!-- CAMBIO 2: Aplicar la estructura de spans -->
+                <h2>
+                    <span class="titulo1">Talento</span>
+                    <span class="titulo2">Troyano</span>
+                </h2>
             </div>
             <div class="user-info">
-                <span><img src="https://api.iconify.design/mdi:bell-outline.svg?color=white" alt="notificaciones"></span>
-                <span><img src="https://api.iconify.design/mdi:message-outline.svg?color=white" alt="mensajes"></span>
+                <span><img src="../icons/notificacion.svg" alt="notificaciones"></span>
+                <span><img src="../icons/mensaje.svg" alt="mensajes"></span>
                 <div class="profile">
                     <span>Administrador<br>empresa</span>
                     <div class="avatar"></div>
@@ -38,32 +49,37 @@
             <div class="contenido-derecho">
                 <div class="filtros-busqueda">
                     <input type="text" placeholder="Agrega filtros a tu búsqueda" class="input-filtros">
-                    <button class="btn-filtro"><img src="https://api.iconify.design/mdi:filter-outline.svg?color=white" alt="Filtro"></button>
+                    <button class="btn-filtro"><img src="../icons/filter.svg" alt="Filtro"></button>
                     <button class="btn-add-vacante" id="btnNuevaVacanteDesdeDashboard">
-                        <img src="https://api.iconify.design/mdi:plus-circle.svg?color=white" alt="Agregar Vacante">
+                        <img src="../icons/plus.svg" alt="Agregar Vacante">
                     </button>
                 </div>
                 <div class="dashboard-grid">
-                    <div class="dashboard-grid">
-                        <a href="vacantesActivas.html" class="btn btn-secondary">Vacantes activas</a>
-                        </div>
-                    <button class="btn btn-secondary" disabled>Vacantes finalizadas</button>
-                    <button class="btn btn-secondary" disabled>Postulantes</button>
-                    <button class="btn btn-secondary" disabled>Estadísticas</button>
+                    <a href="vacantesActivas.html" class="btn btn-secondary">Vacantes Activas</a>
+                    <a href="vacantesFinalizadas.html" class="btn btn-secondary">Vacantes finalizadas</a>
+                    <a href="postulantes.html" class="btn btn-secondary">Postulantes</a>
+                    <a href="estadisticaEmpresa.html" class="btn btn-secondary">Estadísticas</a>
                 </div>
             </div>
         </main>
     </div>
 
+    <!-- ============================================================ -->
+    <!-- Nueva Vacante - Paso 1                                     -->
+    <!-- ============================================================ -->
     <div class="pantalla" id="nuevaVacantePaso1" style="display: none;">
         <header class="pantalla-header">
             <div class="logo-titulo">
-                <h2>Talento Troyano</h2>
+                <!-- CAMBIO 2: Aplicar la estructura de spans -->
+                <h2>
+                    <span class="titulo1">Talento</span>
+                    <span class="titulo2">Troyano</span>
+                </h2>
                 <span class="breadcrumb">Nueva vacante</span>
             </div>
             <div class="user-info">
-                <span><img src="https://api.iconify.design/mdi:bell-outline.svg?color=white" alt="notificaciones"></span>
-                <span><img src="https://api.iconify.design/mdi:message-outline.svg?color=white" alt="mensajes"></span>
+                <span><img src="../icons/notificacion.svg" alt="notificaciones"></span>
+                <span><img src="../icons/mensaje.svg" alt="mensajes"></span>
                 <div class="profile">
                     <span>Administrador<br>empresa</span>
                     <div class="avatar"></div>
@@ -72,14 +88,14 @@
         </header>
         <main class="pantalla-content form-content">
             <form class="form-paso1" onsubmit="return false;"> <div class="form-col">
-                    <button type="button" class="btn btn-secondary">Detalles</button>
+                    <div class="btn btn-secondary form-section-title">Detalles</div>
                     <input type="text" id="titulo" placeholder="Título">
                     <input type="text" id="contratacion" placeholder="Contratación">
                     <input type="text" id="horario" placeholder="Horario">
                     <input type="text" id="modalidad" placeholder="Modalidad">
                 </div>
                 <div class="form-col">
-                    <button type="button" class="btn btn-secondary">Sobre el empleo</button>
+                    <div class="btn btn-secondary form-section-title">Sobre el empleo</div>
                     <input type="text" id="correo" placeholder="Carrera"> <input type="text" id="ubicacion" placeholder="Ubicación">
                     <input type="text" id="salario" placeholder="Salario">
                 </div>
@@ -90,15 +106,22 @@
         </footer>
     </div>
 
+    <!-- ============================================================ -->
+    <!-- Nueva Vacante - Paso 2                                     -->
+    <!-- ============================================================ -->
     <div class="pantalla" id="nuevaVacantePaso2" style="display: none;">
         <header class="pantalla-header">
             <div class="logo-titulo">
-                <h2>Talento Troyano</h2>
+                <!-- CAMBIO 2: Aplicar la estructura de spans -->
+                <h2>
+                    <span class="titulo1">Talento</span>
+                    <span class="titulo2">Troyano</span>
+                </h2>
                 <span class="breadcrumb">Nueva vacante</span>
             </div>
             <div class="user-info">
-                 <span><img src="https://api.iconify.design/mdi:bell-outline.svg?color=white" alt="notificaciones"></span>
-                <span><img src="https://api.iconify.design/mdi:message-outline.svg?color=white" alt="mensajes"></span>
+                 <span><img src="../icons/notificacion.svg" alt="notificaciones"></span>
+                <span><img src="../icons/mensaje.svg" alt="mensajes"></span>
                 <div class="profile">
                     <span>Administrador<br>empresa</span>
                     <div class="avatar"></div>
@@ -107,11 +130,11 @@
         </header>
         <main class="pantalla-content form-content form-paso2">
             <div class="form-col">
-                <button type="button" class="btn btn-secondary">Descripción</button>
+                <div class="btn btn-secondary form-section-title">Descripción</div>
                 <textarea id="descripcion" placeholder="Escribir"></textarea>
             </div>
             <div class="form-col">
-                <button type="button" class="btn btn-secondary">Requisitos</button>
+                <div class="btn btn-secondary form-section-title">Requisitos</div>
                 <textarea id="requisitos" placeholder="Escribir"></textarea>
             </div>
         </main>
@@ -121,15 +144,22 @@
         </footer>
     </div>
 
+    <!-- ============================================================ -->
+    <!-- Nueva Vacante - Paso 3                                     -->
+    <!-- ============================================================ -->
     <div class="pantalla" id="nuevaVacantePaso3" style="display: none;">
         <header class="pantalla-header">
             <div class="logo-titulo">
-                <h2>Talento Troyano</h2>
+                <!-- CAMBIO 2: Aplicar la estructura de spans -->
+                <h2>
+                    <span class="titulo1">Talento</span>
+                    <span class="titulo2">Troyano</span>
+                </h2>
                 <span class="breadcrumb">Nueva vacante</span>
             </div>
             <div class="user-info">
-                 <span><img src="https://api.iconify.design/mdi:bell-outline.svg?color=white" alt="notificaciones"></span>
-                <span><img src="https://api.iconify.design/mdi:message-outline.svg?color=white" alt="mensajes"></span>
+                 <span><img src="../icons/notificacion.svg" alt="notificaciones"></span>
+                <span><img src="../icons/mensaje.svg" alt="mensajes"></span>
                 <div class="profile">
                     <span>Administrador<br>empresa</span>
                     <div class="avatar"></div>
@@ -137,16 +167,19 @@
             </div>
         </header>
         <main class="pantalla-content form-content">
-            <button type="button" class="btn btn-secondary">Resumen</button>
+            <div class="btn btn-secondary form-section-title">Resumen</div>
             <div class="resumen-texto" id="resumenTexto">
-                </div>
-                <div class="pantalla-footer split">
-                    <button class="btn btn-secondary" id="btnRegresar3">Regresar</button>
-                    <button class="btn" id="btnPublicar">Publicar vacante</button>
-                </div>
+            </div>
         </main>
-
+        <footer class="pantalla-footer split">
+            <button class="btn btn-secondary" id="btnRegresar3">Regresar</button>
+            <button class="btn" id="btnPublicar">Publicar vacante</button>
+        </footer>
     </div>
+
+    <!-- ============================================================ -->
+    <!-- Pantalla de Éxito                                          -->
+    <!-- ============================================================ -->
     <div class="pantalla" id="success" style="display: none;">
         <main class="pantalla-content success-content">
             <div class="checkmark">
@@ -157,10 +190,6 @@
             <button class="btn" id="volverInicio">Volver al inicio</button>
         </main>
     </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
 
     <script src="../JavaScripts/empresa.js"></script>
 </body>

@@ -67,6 +67,7 @@ body {
     display: flex; align-items: center; padding: 12px 25px; cursor: pointer;
     color: var(--color-text-muted); transition: color 0.2s; font-size: 18px;
 }
+
 .profile-nav li i {
     margin-right: 10px; font-size: 20px; width: 20px; text-align: center;
     color: var(--color-text-muted);
@@ -79,26 +80,18 @@ body {
 
 /* Mensaje de error */
 .error-msg {
-    color: #d32f2f;
+    color: #f87171; /* Rojo claro */
     font-size: 0.9em;
     margin-top: 4px;
     font-weight: 500;
 }
 
 /* Borde rojo en campos con error */
-.input-error {
-    border: 2px solid #d32f2f !important;
-    background-color: #ffeaea;
+.input-field.input-error {
+    border: 2px solid #f87171 !important;
+    background-color: #4b2525; /* Fondo rojo oscuro */
     transition: all 0.3s ease;
 }
-
-/* Opcional: efecto suave cuando el error desaparece */
-input:not(.input-error),
-select:not(.input-error),
-textarea:not(.input-error) {
-    transition: all 0.3s ease;
-}
-
 
 /* ---------------------------------- */
 /* --- CONTENIDO PRINCIPAL (HOST DE TABS) --- */
@@ -115,7 +108,6 @@ textarea:not(.input-error) {
 .content-tab {
     width: 100%;
     height: 100%;
-    /* Ocultar y superponer por defecto */
     position: absolute; 
     top: 0;
     left: 0;
@@ -128,14 +120,13 @@ textarea:not(.input-error) {
 }
 
 .content-tab.active {
-    /* Mostrar solo la pestaña activa */
     visibility: visible; 
     opacity: 1;
     pointer-events: all;
-    position: relative; /* Clave para que ocupe espacio y use flex-direction: column */
+    position: relative;
     display: flex;
     flex-direction: column;
-    padding: 0; /* padding reseteado para flexbox */
+    padding: 0; 
 }
 
 /* --- Encabezado --- */
@@ -153,7 +144,10 @@ textarea:not(.input-error) {
 .input-field {
     padding: 15px 20px; border-radius: 8px; background-color: var(--color-input-bg);
     color: var(--color-text-light); display: flex; align-items: center; position: relative; 
+    border: 2px solid transparent; /* Espacio para el borde de error */
+    transition: all 0.3s ease;
 }
+
 .input-field i { margin-right: 10px; font-size: 22px; }
 .input-field input {
     flex-grow: 1; background: transparent; border: none; outline: none;
@@ -185,9 +179,7 @@ textarea:not(.input-error) {
 /* --- ESTILOS DE ESTADOS DE SUBIDA --- */
 /* ---------------------------------- */
 
-/* Contenedor de estados para ocultar/mostrar */
 .upload-area-wrapper {
-    /* Clave: Hacemos que el wrapper sea un contenedor para los estados */
     position: relative;
     flex-grow: 1; 
     display: flex; 
@@ -205,15 +197,12 @@ textarea:not(.input-error) {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
-    /* Ocultar todos los estados por defecto */
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
 }
 
 .upload-state.active {
-    /* Mostrar solo el estado activo */
     visibility: visible;
     opacity: 1;
 }
@@ -278,15 +267,68 @@ textarea:not(.input-error) {
     background-color: var(--color-primary); /* Azul de marca */
 }
 
-/* Ajuste del botón Siguiente/Finalizar para el estado de éxito */
 .upload-state.success .form-actions {
-    position: absolute; /* Quitarlo del flujo normal de la columna */
+    position: absolute; 
     bottom: 0;
     right: 0;
     width: 100%;
-    justify-content: flex-end; /* Alinear solo a la derecha */
+    justify-content: flex-end; 
 }
-/* Asegurar que el botón no tenga margin-top: auto del formulario, ya que está absoluto */
 .upload-state.success .form-actions button {
     margin-top: 20px; 
+}
+
+
+/* ================================================= */
+/* --- CAMBIO: ESTILOS DE PANTALLA DE ÉXITO --- */
+/* (Copiados de 'empresa.css') */
+/* ================================================= */
+
+.success-content {
+    text-align: center;
+    justify-content: center; 
+    align-items: center;
+    padding: 4rem 1.5rem;
+    height: 100%;
+}
+
+.success-content h2 {
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--color-text-light);
+}
+
+.checkmark {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 8px solid #28a745;
+    animation: pop 0.4s ease-out;
+}
+
+.tick {
+    position: absolute;
+    top: 10px;
+    left: 0; 
+    right: 0; 
+    font-size: 60px;
+    color: #28a745;
+    animation: appear 0.6s 0.2s ease forwards;
+    opacity: 0;
+}
+
+@keyframes appear {
+    to { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes pop {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
 }

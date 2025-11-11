@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Completar Perfil - Talento Troyano</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/globalAdmin.css">
+    <link rel="stylesheet" href="../css/empresaCompletarPerfil.css">
+</head>
+<body>
+
+    <div class="pantalla" id="pantallaCompletarPerfil">
+        
+        <header class="pantalla-header header-simple">
+            <div class="logo-app">
+                <img src="../icons/logo.png" alt="Logo Talento Troyano" class="logo-icon">
+                <h2>
+                    <span class="titulo1">Talento</span>
+                    <span class="titulo2">Troyano</span>
+                </h2>
+            </div>
+        </header>
+
+        <main class="pantalla-content form-completar">
+
+            <div class="form-seccion bienvenida">
+                <h2>¡Bienvenido a Talento Troyano!</h2>
+                <p>Por favor, completa el perfil de tu empresa y establece una contraseña permanente para continuar.</p>
+            </div>
+
+            <div class="form-seccion">
+                <h3 class="seccion-titulo">Perfil de la Empresa</h3>
+                
+                <div class="form-grupo">
+                    <label for="empresa-nombre">Nombre de la Empresa (Razón Social)</label>
+                    <input type="text" id="empresa-nombre" value="Nombre de Empresa de Ejemplo" placeholder="Nombre completo de la empresa">
+                </div>
+                
+                <div class="input-grid-col-2">
+                    <div class="form-grupo">
+                        <label for="empresa-rfc">RFC</label>
+                        <input type="text" id="empresa-rfc" value="ABC123456XYZ" placeholder="RFC de la empresa">
+                    </div>
+                    <div class="form-grupo">
+                        <label for="empresa-industria">Industria</label>
+                        <input type="text" id="empresa-industria" value="Tecnología" placeholder="Ej. Manufactura, Software, etc.">
+                    </div>
+                </div>
+
+                <div class="form-grupo">
+                    <label for="empresa-web">Sitio Web</label>
+                    <input type="text" id="empresa-web" placeholder="https://www.tuempresa.com">
+                </div>
+
+                <div class="form-grupo">
+                    <label for="empresa-descripcion">Descripción de la Empresa</label>
+                    <textarea id="empresa-descripcion" rows="5" placeholder="Una breve descripción de lo que hace tu empresa..."></textarea>
+                </div>
+            </div>
+
+            <div class="form-seccion">
+                <h3 class="seccion-titulo">Tu Información de Contacto</h3>
+                <div class="input-grid-col-2">
+                    <div class="form-grupo">
+                        <label for="reclutador-nombre">Tu Nombre</label>
+                        <input type="text" id="reclutador-nombre" value="Nombre Reclutador" placeholder="Tu nombre completo">
+                    </div>
+                    <div class="form-grupo">
+                        <label for="reclutador-cargo">Tu Cargo</label>
+                        <input type="text" id="reclutador-cargo" placeholder="Ej. Gerente de RRHH, Reclutador TI">
+                    </div>
+                </div>
+                 <div class="form-grupo">
+                    <label for="reclutador-email">Tu Email (no se puede cambiar)</label>
+                    <input type="email" id="reclutador-email" value="contacto@empresa.com" disabled>
+                </div>
+            </div>
+
+            <div class="form-seccion">
+                <h3 class="seccion-titulo">Establece tu Contraseña</h3>
+                <div class="form-grupo">
+                    <label for="pass-temporal">Contraseña Temporal (la que te dio el admin)</label>
+                    <input type="password" id="pass-temporal" placeholder="Ingresa la contraseña temporal">
+                </div>
+                
+                <div class="input-grid-col-2">
+                    <div class="form-grupo">
+                        <label for="pass-nueva">Nueva Contraseña</label>
+                        <input type="password" id="pass-nueva" placeholder="Mínimo 8 caracteres">
+                    </div>
+                    <div class="form-grupo">
+                        <label for="pass-confirmar">Confirmar Nueva Contraseña</label>
+                        <input type="password" id="pass-confirmar" placeholder="Repite la nueva contraseña">
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        
+        <footer class="pantalla-footer">
+            <button class="btn" id="btn-guardar-perfil">Guardar y Entrar</button>
+        </footer>
+    </div>
+    
+    </body>
+</html>

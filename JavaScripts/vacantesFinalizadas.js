@@ -1,24 +1,40 @@
-/**
- * app.js
- *
- * Script principal para la inicialización de la página.
- * - Espera a que el DOM esté cargado.
- * - Inicializa los iconos de Lucide.
- * - Muestra el contenido del body (que estaba oculto por CSS).
- */
-document.addEventListener("DOMContentLoaded", function() {
-    
-    // 1. Verifica si la biblioteca Lucide está disponible
-    if (typeof lucide !== 'undefined') {
-        // Renderiza todos los iconos con el atributo 'data-lucide'
-        lucide.createIcons();
-    } else {
-        console.warn("Lucide icons library not found.");
-    }
-    
-    // 2. Muestra el body.
-    // Esto previene un "flash" de contenido sin estilo
-    // o de iconos sin renderizar.
-    document.body.style.display = 'block';
 
+
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // Selecciona todos los botones de acción de las tarjetas
+    const botonesAccion = document.querySelectorAll('.btn-accion-vacante');
+
+    botonesAccion.forEach(boton => {
+        boton.addEventListener('click', () => {
+            // Obtiene el título de la vacante más cercano
+            const card = boton.closest('.vacante-card');
+            const titulo = card.querySelector('.vacante-info h4').textContent;
+            
+            // Obtiene la acción del atributo 'title' del botón
+            // (Esto funcionará para "Ver Detalles" y "Clonar Vacante")
+            const accion = boton.getAttribute('title');
+
+            // Muestra una alerta de ejemplo
+            alert(`Acción: ${accion}\nVacante: ${titulo}`);
+        });
+    });
+
+    // La lógica de búsqueda funciona exactamente igual
+    const searchInput = document.querySelector('.search-input');
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            const textoBusqueda = e.target.value.toLowerCase();
+            const tarjetas = document.querySelectorAll('.vacante-card');
+            
+            tarjetas.forEach(tarjeta => {
+                const titulo = tarjeta.querySelector('.vacante-info h4').textContent.toLowerCase();
+                if (titulo.includes(textoBusqueda)) {
+                    tarjeta.style.display = 'grid'; // Muestra la tarjeta
+                } else {
+                    tarjeta.style.display = 'none'; // Oculta la tarjeta
+                }
+            });
+        });
+    }
 });

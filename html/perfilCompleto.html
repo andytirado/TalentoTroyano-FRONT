@@ -12,11 +12,13 @@
         <aside class="sidebar">
             <div class="logo-area">
                 <div class="logo-circle">
-                    <img src="../logo.png" alt="Logotipo Talento Troyano">
+                    <!-- GUÍA DE ICONOS: Aquí puedes cambiar el logo si es un icono -->
+                    <img src="../icons/logo.png" alt="Logotipo Talento Troyano">
                 </div>
             </div>
             <nav class="profile-nav">
                 <ul>
+                    <!-- GUÍA DE ICONOS: Cambia estas etiquetas <i> por <img> -->
                     <li class="active" data-tab="personal"><i class="fas fa-user"></i> Información personal</li>
                     <li data-tab="contacto"><i class="fas fa-phone"></i> Contacto</li>
                     <li data-tab="curriculum"><i class="fas fa-file-alt"></i> Currículum</li>
@@ -31,15 +33,20 @@
                     <h1>¡Completa tu perfil!</h1>
                     <p>Tu información nos ayudará a conectarte con las mejores oportunidades para tu perfil.</p>
                 </header>
-                <form class="profile-form">
+                <!-- Le añadimos la clase 'needs-validation' para que el JS la detecte -->
+                <form class="profile-form needs-validation">
                     <div class="form-grid">
+                        <!-- GUÍA DE ICONOS: Cambia estas etiquetas <i> por <img> -->
                         <div class="input-field full-width"> <i class="fas fa-user"></i> <input type="text" placeholder="Nombre(s)" required> </div>
                         <div class="input-field"> <i class="fas fa-user"></i> <input type="text" placeholder="Apellido paterno" required> </div>
                         <div class="input-field"> <i class="fas fa-user"></i> <input type="text" placeholder="Apellido materno" required> </div>
+                        
+                        <!-- CAMBIO: Campo "Expediente" añadido -->
+                        <div class="input-field"> <i class="fas fa-id-card"></i> <input type="text" placeholder="Expediente" required> </div>
+
                         <div class="input-field"> <i class="fas fa-venus-mars"></i> <input type="text" placeholder="Género" required> </div>
                         <div class="input-field"> <i class="fas fa-graduation-cap"></i> <input type="text" placeholder="Carrera" required> </div>
                         <div class="input-field"> <i class="fas fa-calendar-alt"></i> <input type="text" placeholder="Edad" required> </div>
-                        <div class="input-field"></div>
                     </div>
                     <div class="form-actions">
                         <button type="button" class="btn secundary">Omitir</button>
@@ -53,8 +60,10 @@
                     <h1>¡Completa tu perfil!</h1>
                     <p>Sube tu información de contacto para que las empresas te contacten</p>
                 </header>
-                <form class="contact-form">
+                <!-- Le añadimos la clase 'needs-validation' -->
+                <form class="contact-form needs-validation">
                     <div class="form-grid">
+                        <!-- GUÍA DE ICONOS: Cambia estas etiquetas <i> por <img> -->
                         <div class="input-field full-width"> <i class="fas fa-phone-alt"></i> <input type="tel" placeholder="Celular" name="celular" required> </div>
                         <div class="input-field"> <i class="fab fa-github"></i> <input type="url" placeholder="Github" name="github"> </div>
                         <div class="input-field"> <i class="fab fa-linkedin-in"></i> <input type="url" placeholder="LinkedIn" name="linkedin"> </div>
@@ -69,81 +78,94 @@
             </section>
 
             <section id="tab-curriculum" class="content-tab">
-    <header class="content-header">
-        <h1>¡Completa tu perfil!</h1>
-        <p>Sube tu currículum en formato **pdf** y con un **máximo de 5 MB**</p>
-    </header>
-    <div class="upload-area-wrapper">
-        
-        <div id="curriculum-upload-state" class="upload-state active">
-            <label for="curriculum-upload" class="upload-dropzone">
-                <i class="fas fa-arrow-up"></i>
-            </label>
-            <input id="curriculum-upload" type="file" accept=".pdf" style="display: none;">
-        </div>
+                <header class="content-header">
+                    <h1>¡Completa tu perfil!</h1>
+                    <p>Sube tu currículum en formato **pdf** y con un **máximo de 5 MB**</p>
+                </header>
+                <div class="upload-area-wrapper">
+                    
+                    <div id="curriculum-upload-state" class="upload-state active">
+                        <label for="curriculum-upload" class="upload-dropzone">
+                            <i class="fas fa-arrow-up"></i>
+                        </label>
+                        <input id="curriculum-upload" type="file" accept=".pdf" style="display: none;">
+                    </div>
 
-        <div id="curriculum-error-docx" class="upload-state error">
-            <div class="file-name-bar error">CV_EJEMPLO.DOCX <i class="fas fa-times"></i></div>
-            <p class="file-message">Revisa el formato del documento y vuelve a intentarlo</p>
-            <div class="upload-icon-box error">
-                <i class="fas fa-times fa-4x"></i>
-            </div>
-        </div>
+                    <div id="curriculum-error-docx" class="upload-state error">
+                        <div class="file-name-bar error">CV_EJEMPLO.DOCX <i class="fas fa-times"></i></div>
+                        <p class="file-message">Revisa el formato del documento y vuelve a intentarlo</p>
+                        <div class="upload-icon-box error">
+                            <i class="fas fa-times fa-4x"></i>
+                        </div>
+                    </div>
 
-        <div id="curriculum-success" class="upload-state success">
-            <div class="file-name-bar success">CV_EJEMPLO.PDF <i class="fas fa-times"></i></div>
-            <p class="file-message">¡Currículum subido con éxito!</p>
-            <div class="upload-icon-box success">
-                <i class="fas fa-check fa-4x"></i>
-            </div>
-            <div class="form-actions">
-                <button type="button" class="btn primary siguiente-btn">Siguiente</button> 
-            </div>
-        </div>
+                    <div id="curriculum-success" class="upload-state success">
+                        <div class="file-name-bar success">CV_EJEMPLO.PDF <i class="fas fa-times"></i></div>
+                        <p class="file-message">¡Currículum subido con éxito!</p>
+                        <div class="upload-icon-box success">
+                            <i class="fas fa-check fa-4x"></i>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn primary siguiente-btn">Siguiente</button> 
+                        </div>
+                    </div>
 
-    </div>
-</section>
+                </div>
+            </section>
 
-<section id="tab-foto" class="content-tab">
-    <header class="content-header">
-        <h1>¡Completa tu perfil!</h1>
-        <p>Sube una foto de perfil en formato **jpeg o png** para terminar la configuración de tu perfil</p>
-    </header>
-    <div class="upload-area-wrapper">
+            <section id="tab-foto" class="content-tab">
+                <header class="content-header">
+                    <h1>¡Completa tu perfil!</h1>
+                    <p>Sube una foto de perfil en formato **jpeg o png** para terminar la configuración de tu perfil</p>
+                </header>
+                <div class="upload-area-wrapper">
 
-        <div id="foto-upload-state" class="upload-state active">
-            <label for="foto-upload" class="upload-dropzone">
-                <i class="fas fa-arrow-up"></i>
-            </label>
-            <input id="foto-upload" type="file" accept="image/jpeg, image/png" style="display: none;">
-        </div>
+                    <div id="foto-upload-state" class="upload-state active">
+                        <label for="foto-upload" class="upload-dropzone">
+                            <i class="fas fa-arrow-up"></i>
+                        </label>
+                        <input id="foto-upload" type="file" accept="image/jpeg, image/png" style="display: none;">
+                    </div>
 
-        <div id="foto-error-raw" class="upload-state error">
-            <div class="file-name-bar error">FOTO_DE_PERFIL_EJEMPLO.RAW <i class="fas fa-times"></i></div>
-            <p class="file-message">Revisa el formato de la foto y vuelve a intentarlo</p>
-            <div class="upload-icon-box error">
-                <i class="fas fa-times fa-4x"></i>
-            </div>
-        </div>
+                    <div id="foto-error-raw" class="upload-state error">
+                        <div class="file-name-bar error">FOTO_DE_PERFIL_EJEMPLO.RAW <i class="fas fa-times"></i></div>
+                        <p class="file-message">Revisa el formato de la foto y vuelve a intentarlo</p>
+                        <div class="upload-icon-box error">
+                            <i class="fas fa-times fa-4x"></i>
+                        </div>
+                    </div>
 
-        <div id="foto-success" class="upload-state success">
-            <div class="file-name-bar success">FOTO_DE_PERFIL_EJEMPLO.JPG <i class="fas fa-times"></i></div>
-            <p class="file-message">¡Tu foto se cargo con éxito!</p>
-            <div class="upload-icon-box success">
-                <i class="fas fa-check fa-4x"></i>
-            </div>
-            <div class="form-actions">
-                <button type="button" class="btn primary finalizar-btn">Finalizar</button>
-            </div>
-        </div>
+                    <div id="foto-success" class="upload-state success">
+                        <div class="file-name-bar success">FOTO_DE_PERFIL_EJEMPLO.JPG <i class="fas fa-times"></i></div>
+                        <p class="file-message">¡Tu foto se cargo con éxito!</p>
+                        <div class="upload-icon-box success">
+                            <i class="fas fa-check fa-4x"></i>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn primary finalizar-btn">Finalizar</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-    </div>
-</section>
+            <!-- CAMBIO: Pantalla de Éxito añadida -->
+            <section id="tab-success" class="content-tab">
+                <!-- 
+                  Esta es la misma estructura de 'empresa.html' 
+                  Los estilos se añadieron en 'perfilCompleto.css'
+                -->
+                <main class="pantalla-content success-content">
+                    <div class="checkmark">
+                        <div class="circle"></div>
+                        <div class="tick">✔</div>
+                    </div>
+                    <h2>¡Perfil completado con éxito!</h2>
+                    <button class="btn primary" id="btn-volver-perfil">Volver al inicio</button>
+                </main>
+            </section>
         </main>
     </div>
 
-    <script src="../JavaScripts/perfilCompleto.js">
-        
-    </script>
+    <script src="../JavaScripts/perfilCompleto.js"></script>
 </body>
 </html>

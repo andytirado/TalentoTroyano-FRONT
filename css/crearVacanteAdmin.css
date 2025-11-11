@@ -1,0 +1,10 @@
+/* css/admin-crear-vacante.css */
+
+/* Estilo para el layout del Paso 2 (Descripción y Requisitos) */
+/* (El <main> en el paso 2 tiene la clase .form-paso2) */
+.form-paso2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+

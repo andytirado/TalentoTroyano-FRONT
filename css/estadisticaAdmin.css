@@ -1,0 +1,38 @@
+/* ============================================================ */
+/* --- admin-estadisticas.css --- */
+/* Estilos Específicos de ESTADISTICA_ADMIN.HTML */
+/* ============================================================ */
+
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.kpi-card {
+    background-color: #3C5A74;
+    color: #ebebeb;
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid #4A7A9F;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.kpi-icon {
+    width: 28px;
+    height: 28px;
+    margin-bottom: 0.5rem;
+}
+.kpi-value {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.1;
+}
+.kpi-label {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}

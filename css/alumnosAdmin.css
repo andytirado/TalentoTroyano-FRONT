@@ -1,0 +1,87 @@
+/* ============================================================ */
+/* --- admin-gestion.css --- */
+/* Estilos Específicos de ALUMNOS_ADMIN.HTML */
+/* ============================================================ */
+
+/* Lista de Usuarios */
+.user-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.admin-user-card {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    align-items: center;
+    gap: 1.5rem;
+    background-color: #3C5A74;
+    padding: 1rem 1.5rem;
+    border-radius: 6px;
+    border: 1px solid #4A7A9F;
+    border-left: 5px solid transparent;
+    transition: all 0.2s ease;
+}
+.admin-user-card.status-active-bar {
+    border-left-color: #4ade80; /* Verde */
+}
+.admin-user-card.status-inactive-bar {
+    border-left-color: #f87171; /* Rojo */
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #283747;
+    border: 2px solid #ebebeb;
+    flex-shrink: 0;
+    background-size: cover;
+    background-position: center;
+}
+.user-text h4 {
+    color: #ebebeb;
+    font-size: 1.1rem;
+    margin: 0 0 0.25rem 0;
+}
+.user-text p {
+    color: #ebebeb;
+    font-size: 0.9rem;
+    margin: 0;
+    opacity: 0.8;
+}
+.user-text span {
+    font-size: 0.8rem;
+    color: #b0c4d4;
+    font-family: monospace;
+}
+.user-status {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+.user-status.status-active { color: #a7f3d0; }
+.user-status.status-inactive { color: #fecaca; }
+.user-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.75rem;
+}
+.btn-user-action {
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+.btn-user-action img { width: 22px; height: 22px; }
+.btn-user-action:hover { background-color: rgba(255, 255, 255, 0.1); }
