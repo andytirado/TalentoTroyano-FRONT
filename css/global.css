@@ -24,7 +24,7 @@ body {
     max-width: 900px;
     background-color: #ebebeb; 
     border-radius: 8px;
-    overflow: hidden;
+    overflow:visible;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     border: 1px solid #444;
     
@@ -35,6 +35,7 @@ body {
 
 /* --- Cabecera de Pantalla (Compartida) --- */
 .pantalla-header {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -42,6 +43,7 @@ body {
     background-color: #ebebeb;
     border-bottom: 1px solid #444;
     flex-shrink: 0;
+    z-index: 20;
 }
 
 .logo-app {
@@ -76,6 +78,7 @@ body {
 
 
 .user-info {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -157,4 +160,62 @@ body {
 /* Regla clave para que los enlaces <a> parezcan botones */
 a.btn, a.btn-secondary {
     text-decoration: none;
+}
+/* --- Estilos del Menú Desplegable (Agregar al final de global.css) --- */
+
+.dropdown-menu {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    top: 120%; /* Justo debajo del header */
+    right: 0;
+    width: 220px;
+    background-color: #3C5A74; /* Mismo tono que las tarjetas */
+    border: 1px solid #4A7A9F;
+    border-radius: 6px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    padding: 0.5rem 0;
+    /*margin-top: 0.5rem;*/
+}
+/* Clase que agrega JS para mostrar el menú */
+.dropdown-menu.show {
+    display: block;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    color: #ebebeb;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: background-color 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: #4A7A9F;
+}
+
+.dropdown-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Estilo especial para Cerrar Sesión */
+.dropdown-item-danger {
+    color: #f87171; /* Rojo suave */
+    border-top: 1px solid #4A7A9F;
+    margin-top: 0.25rem;
+}
+
+.dropdown-item-danger:hover {
+    background-color: rgba(248, 113, 113, 0.1); /* Fondo rojo muy tenue */
+}
+
+/* Pequeña animación de entrada */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }

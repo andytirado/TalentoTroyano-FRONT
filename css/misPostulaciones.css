@@ -1,0 +1,114 @@
+/* css/misPostulaciones.css */
+
+/* Contenedor de la lista de tarjetas */
+.postulacion-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* La tarjeta individual de postulación */
+.postulacion-card {
+    display: grid;
+    /* 3 columnas: 2fr para info, 1fr para estado, 1fr para acciones */
+    grid-template-columns: 2fr 1fr 1fr;
+    align-items: center;
+    gap: 1.5rem;
+    
+    /* Reutilizamos el estilo de "tarjeta" de globalAdmin/adminConfiguracion */
+    background-color: #3C5A74; 
+    padding: 1.5rem;
+    border-radius: 6px;
+    border: 1px solid #4A7A9F;
+    
+    /* Borde izquierdo de color para el estado */
+    border-left: 5px solid transparent;
+    transition: all 0.2s ease;
+}
+
+/* Colores del borde izquierdo según el estado */
+.postulacion-card.status-accepted-bar { border-left-color: #4ade80; } /* Verde */
+.postulacion-card.status-viewed-bar { border-left-color: #3b82f6; } /* Azul */
+.postulacion-card.status-pending-bar { border-left-color: #f59e0b; } /* Naranja */
+.postulacion-card.status-rejected-bar { border-left-color: #f87171; } /* Rojo */
+
+
+/* --- Columna 1: Información del Trabajo --- */
+.job-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.job-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #283747;
+    border: 2px solid #ebebeb;
+    flex-shrink: 0;
+    background-size: cover;
+    background-position: center;
+}
+.job-text h4 {
+    color: #ebebeb;
+    font-size: 1.1rem;
+    margin: 0 0 0.25rem 0;
+}
+.job-text p {
+    color: #ebebeb;
+    font-size: 0.9rem;
+    margin: 0;
+    opacity: 0.8;
+}
+.job-text span {
+    font-size: 0.8rem;
+    color: #b0c4d4; /* Color suave para la fecha */
+}
+
+/* --- Columna 2: Estado de la Postulación --- */
+.job-status {
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.job-status img {
+    width: 20px;
+    height: 20px;
+}
+/* Colores del texto de estado */
+.job-status.status-accepted { color: #a7f3d0; } /* Verde claro */
+.job-status.status-viewed { color: #93c5fd; } /* Azul claro */
+.job-status.status-pending { color: #fcd34d; } /* Naranja claro */
+.job-status.status-rejected { color: #fecaca; } /* Rojo claro */
+
+
+/* --- Columna 3: Acciones --- */
+.job-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.5rem;
+}
+/* Hacemos el botón de "Ver Vacante" más pequeño */
+.btn-accion-card {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+/* Estilo para el botón de "Retirar" (reutilizado de perfilUsuario.css) */
+.btn-user-action {
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+.btn-user-action img { width: 22px; height: 22px; }
+.btn-user-action:hover { background-color: rgba(255, 255, 255, 0.1); }
