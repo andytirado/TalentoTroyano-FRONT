@@ -1,0 +1,184 @@
+/* css/verPerfilEmpresa.css */
+
+/* --- HERO SECTION (Encabezado Superior) --- */
+.empresa-hero {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background-color: #3C5A74;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid #4A7A9F;
+    margin-bottom: 2rem;
+}
+
+.hero-logo-container {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background-color: #283747;
+    border: 4px solid #ebebeb;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.hero-logo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.hero-text h1 {
+    font-size: 2rem;
+    color: #ebebeb;
+    margin: 0;
+}
+.hero-industria {
+    font-size: 1.1rem;
+    color: #b0c4d4;
+    margin: 0;
+}
+
+.hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+.badge {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    color: #ebebeb;
+}
+.link-web {
+    color: #93c5fd; /* Azul claro enlace */
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+}
+.link-web:hover {
+    text-decoration: underline;
+}
+
+/* --- GRID LAYOUT --- */
+.perfil-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Principal (Ancho) | Lateral (Estrecho) */
+    gap: 1.5rem;
+}
+
+.col-principal, .col-lateral {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* --- TARJETAS DE INFORMACIÓN --- */
+.info-card {
+    background-color: transparent; /* Opcional: o #3C5A74 si quieres cajas marcadas */
+    /* En diseño de lectura, a veces es mejor limpio o con borde sutil */
+    border: 1px solid #4A7A9F;
+    background-color: #3C5A74;
+    border-radius: 6px;
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    color: #ebebeb;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.card-body p {
+    line-height: 1.6;
+    color: #e0e0e0;
+    margin: 0;
+}
+
+/* Lista de Beneficios */
+.lista-beneficios {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.lista-beneficios li {
+    padding: 0.5rem 0;
+    color: #e0e0e0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.lista-beneficios li:last-child {
+    border-bottom: none;
+}
+
+/* Detalles Laterales */
+.detalle-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.detalle-item img {
+    width: 24px;
+    height: 24px;
+    opacity: 0.7;
+    margin-top: 2px;
+}
+.detalle-item div {
+    display: flex;
+    flex-direction: column;
+}
+.detalle-item strong {
+    font-size: 0.85rem;
+    color: #b0c4d4;
+}
+.detalle-item span {
+    font-size: 0.95rem;
+    color: #ebebeb;
+}
+
+/* Contact Card */
+.recruiter-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.recruiter-avatar {
+    width: 45px;
+    height: 45px;
+    background-color: #336699;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+.btn-full-width {
+    width: 100%;
+    text-align: center;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .empresa-hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    .hero-badges {
+        justify-content: center;
+    }
+    .perfil-grid {
+        grid-template-columns: 1fr; /* Una sola columna */
+    }
+}

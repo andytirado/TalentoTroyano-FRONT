@@ -1,0 +1,126 @@
+/* --- Ajustes del Contenedor Principal --- */
+.pantalla-error {
+    max-width: 600px; /* Más estrecha que el dashboard para enfocar la atención */
+    margin: auto;
+    text-align: center;
+}
+
+/* Centrar el header (similar a empresaCompletarPerfil) */
+.header-centered {
+    justify-content: center !important;
+}
+
+/* Centrar el footer */
+.footer-centered {
+    justify-content: center !important;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* --- Contenido del Cuerpo --- */
+.error-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+}
+
+.error-code {
+    font-size: 5rem; /* Muy grande */
+    font-weight: 800;
+    color: #336699; /* Azul Troyano */
+    margin: 0;
+    line-height: 1;
+    opacity: 0.2; /* Un poco transparente para que no sea agresivo */
+    position: absolute; /* De fondo */
+    top: 120px;
+    z-index: 0;
+}
+
+.error-title {
+    font-size: 1.8rem;
+    color: #283747; /* Color oscuro */
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    z-index: 1;
+}
+
+.error-desc {
+    color: #555;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    z-index: 1;
+    max-width: 400px;
+}
+
+/* Botón ligeramente más grande */
+.btn-error-action {
+    padding: 0.8rem 2rem;
+    z-index: 1;
+    text-decoration: none; /* Asegura que el link se vea como botón */
+}
+
+/* --- Animación de Error (Basada en tu checkmark verde) --- */
+.error-mark {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1.5rem;
+    z-index: 1;
+}
+
+.circle-error {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 8px solid #c0392b; /* Rojo oscuro / Alerta */
+    opacity: 0;
+    animation: pop-error 0.5s ease-out forwards;
+    background-color: #fff; /* Fondo blanco para tapar el número 404 si se cruzan */
+}
+
+.mark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    font-size: 60px;
+    font-weight: bold;
+    color: #c0392b; /* Rojo */
+    opacity: 0;
+    animation: appear-mark 0.5s 0.3s ease forwards;
+    font-family: sans-serif;
+}
+
+/* Animaciones */
+@keyframes pop-error {
+    0% { transform: scale(0.5); opacity: 0; }
+    70% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes appear-mark {
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* --- Media Queries para Responsividad --- */
+@media (max-width: 480px) {
+    .error-code {
+        font-size: 4rem;
+        top: 100px;
+    }
+    .error-mark {
+        width: 80px;
+        height: 80px;
+    }
+    .circle-error {
+        width: 80px;
+        height: 80px;
+        border-width: 6px;
+    }
+    .mark {
+        font-size: 40px;
+    }
+}

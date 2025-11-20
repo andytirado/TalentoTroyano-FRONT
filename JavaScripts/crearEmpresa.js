@@ -6,14 +6,16 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const btnGuardar = document.getElementById("btn-guardar-empresa");
     const btnVolver = document.getElementById("volverInicio");
+    
+    // Nuevos Botones de Éxito
+    const btnVerCredenciales = document.getElementById("btnVerCredenciales");
+    const btnEnviarEmail = document.getElementById("btnEnviarEmail");
 
     // --- Campos del formulario ---
     const nombreEmpresaInput = document.getElementById("empresa-nombre");
     const rfcInput = document.getElementById("empresa-rfc");
     const reclutadorInput = document.getElementById("empresa-reclutador");
     const emailInput = document.getElementById("empresa-email");
-    const passwordInput = document.getElementById("empresa-password");
-    // (Añadimos industria por si lo necesitas, aunque no lo validamos)
     const industriaInput = document.getElementById("empresa-industria");
 
     // --- Spans de Error ---
@@ -21,7 +23,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const errorRfc = document.getElementById("error-rfc");
     const errorReclutador = document.getElementById("error-reclutador");
     const errorEmail = document.getElementById("error-email");
-    const errorPassword = document.getElementById("error-password");
+
+    // Variable para guardar la contraseña generada temporalmente
+    let contrasenaGenerada = "";
+
+    // --- Función auxiliar para generar contraseña ---
+    function generarContrasenaAleatoria() {
+        const caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        let resultado = "";
+        for (let i = 0; i < 8; i++) {
+            resultado += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+        }
+        return resultado;
+    }
 
     // --- Función de Validación ---
     function validarFormulario() {
@@ -67,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
             errorEmail.textContent = "El email es obligatorio.";
             errorEmail.style.display = "block";
             esValido = false;
-        } else if (!emailValor.includes('@')) { // Validación simple de email
+        } else if (!emailValor.includes('@')) { 
             emailInput.classList.add("input-error");
             errorEmail.textContent = "Ingresa un email válido.";
             errorEmail.style.display = "block";
@@ -77,16 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
             errorEmail.style.display = "none";
         }
 
-        // 5. Validar Contraseña
-        if (passwordInput.value.trim() === "") {
-            passwordInput.classList.add("input-error");
-            errorPassword.textContent = "La contraseña temporal es obligatoria.";
-            errorPassword.style.display = "block";
-            esValido = false;
-        } else {
-            passwordInput.classList.remove("input-error");
-            errorPassword.style.display = "none";
-        }
+        // NOTA: Ya no validamos contraseña manual porque se genera automática
 
         return esValido;
     }
@@ -95,33 +100,50 @@ document.addEventListener("DOMContentLoaded", () => {
     if (btnGuardar && pantallaFormulario && pantallaExito) {
         btnGuardar.addEventListener("click", () => {
             
-            // 1. Validar el formulario primero
-            const formularioEsValido = validarFormulario();
-
-            // 2. Si no es válido, detener la ejecución
-            if (!formularioEsValido) {
+            // 1. Validar el formulario
+            if (!validarFormulario()) {
                 return;
             }
 
-            // --- Si la validación pasa, continuamos ---
-            
-            // Recolectar valores (ya que son válidos)
+            // 2. Generar la contraseña automática
+            contrasenaGenerada = generarContrasenaAleatoria();
+
+            // Recolectar valores
             const datosEmpresa = {
                 nombre: nombreEmpresaInput.value,
                 rfc: rfcInput.value,
                 industria: industriaInput.value,
                 reclutador: reclutadorInput.value,
                 email: emailInput.value,
-                password: passwordInput.value // ¡Recuerda manejar esto con seguridad en el backend!
+                passwordTemp: contrasenaGenerada // Guardamos la generada
             };
 
             console.log("Guardando empresa:", datosEmpresa);
             
-            // 3. Ocultar el formulario
+            // 3. Cambiar de pantalla
             pantallaFormulario.style.display = "none";
-            
-            // 4. Mostrar la pantalla de éxito
             pantallaExito.style.display = "block"; 
+        });
+    }
+
+    // --- Lógica Botón: Ver Credenciales ---
+    if (btnVerCredenciales) {
+        btnVerCredenciales.addEventListener("click", () => {
+            const mensaje = `
+                Credenciales Temporales:
+                ------------------------
+                Usuario: ${emailInput.value}
+                Contraseña: ${contrasenaGenerada}
+            `;
+            alert(mensaje); // Puedes cambiar esto por un modal más bonito si prefieres
+        });
+    }
+
+    // --- Lógica Botón: Enviar por Email ---
+    if (btnEnviarEmail) {
+        btnEnviarEmail.addEventListener("click", () => {
+            // Aquí iría la llamada a tu Backend para enviar el correo real
+            alert(`Se han enviado las credenciales a: ${emailInput.value}`);
         });
     }
 

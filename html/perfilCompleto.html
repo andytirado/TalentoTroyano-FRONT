@@ -6,11 +6,13 @@
     <title>Talento Troyano – Perfil Completo</title>
     <link rel="stylesheet" href="../css/perfilCompleto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
 </head>
 <body>
     <div class="profile-container">
         <aside class="sidebar">
             <div class="logo-area">
+
                 <div class="logo-circle">
                     <!-- GUÍA DE ICONOS: Aquí puedes cambiar el logo si es un icono -->
                     <img src="../icons/logo.png" alt="Logotipo Talento Troyano">
@@ -49,7 +51,6 @@
                         <div class="input-field"> <i class="fas fa-calendar-alt"></i> <input type="text" placeholder="Edad" required> </div>
                     </div>
                     <div class="form-actions">
-                        <button type="button" class="btn secundary">Omitir</button>
                         <button type="button" class="btn primary">Siguiente</button>
                     </div>
                 </form>
@@ -119,13 +120,16 @@
                     <p>Sube una foto de perfil en formato **jpeg o png** para terminar la configuración de tu perfil</p>
                 </header>
                 <div class="upload-area-wrapper">
-
+            
                     <div id="foto-upload-state" class="upload-state active">
                         <label for="foto-upload" class="upload-dropzone">
                             <i class="fas fa-arrow-up"></i>
                         </label>
                         <input id="foto-upload" type="file" accept="image/jpeg, image/png" style="display: none;">
-                    </div>
+                        
+                        <div class="omitir-section">
+                            <button type="button" class="btn secundary" id="btn-omitir-foto">Omitir</button>
+                        </div>
 
                     <div id="foto-error-raw" class="upload-state error">
                         <div class="file-name-bar error">FOTO_DE_PERFIL_EJEMPLO.RAW <i class="fas fa-times"></i></div>

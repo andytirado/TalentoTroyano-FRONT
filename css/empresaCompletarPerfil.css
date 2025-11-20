@@ -115,3 +115,44 @@ input[type="password"]::placeholder {
 .pantalla-footer {
     justify-content: flex-end; /* Botón a la derecha */
 }
+/* --- Estilos para la subida de Logo --- */
+
+.form-grupo-centro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.logo-upload-wrapper {
+    width: 150px; /* Mismo tamaño que en empresa.html */
+    height: 150px;
+    background-color: #3C5A74;
+    border: 3px solid #4A7A9F; /* Borde azul consistente */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.logo-upload-wrapper:hover {
+    border-color: #ebebeb; /* Efecto hover para indicar acción */
+    transform: scale(1.02);
+}
+
+/* Estilo para el ícono de "más" antes de subir foto */
+.img-placeholder {
+    width: 40px;
+    height: 40px;
+    opacity: 0.5;
+}
+
+.texto-ayuda {
+    font-size: 0.85rem;
+    color: #b0c4d4;
+    font-style: italic;
+}

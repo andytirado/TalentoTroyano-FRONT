@@ -32,35 +32,33 @@
             
                 <div class="dropdown-menu" id="profile-menu">
                     <a href="perfilUsuario.html" class="dropdown-item">
-                        <img src="https://api.iconify.design/mdi:account-circle-outline.svg?color=white" class="dropdown-icon">
+                        <img src="../icons/plus.svg" class="dropdown-icon" style="opacity:0.5">
                         Mi Perfil
                     </a>
-                    
-                    <a href="#" class="dropdown-item">
-                        <img src="https://api.iconify.design/mdi:help-circle-outline.svg?color=white" class="dropdown-icon">
-                        Ayuda
-                    </a>
-                    
                     <a href="login.html" class="dropdown-item dropdown-item-danger">
-                        <img src="https://api.iconify.design/mdi:logout.svg?color=#f87171" class="dropdown-icon">
+                        <img src="../icons/plus.svg" class="dropdown-icon" style="opacity:0.5; background:red;">
                         Cerrar Sesión
                     </a>
                 </div>
-            </div>
             </div>
         </header>
 
         <main class="pantalla-content">
             
-            <div class="page-title-bar" style="border-bottom: none;">
-                <h2>Mis Postulaciones</h2>
+            <div class="page-title-bar">
+                <div class="filtros-busqueda">
+                    <input type="text" placeholder="Buscar postulación por puesto o empresa..." class="input-filtros">
+                    <button class="btn-filtro" style="background:transparent; border:none; cursor:pointer; padding:0.5rem;">
+                        <img src="../icons/filter.svg" alt="Buscar" style="width:20px; opacity:0.7;">
+                    </button>
+                </div>
             </div>
 
             <div class="postulacion-lista">
                 
                 <div class="postulacion-card status-accepted-bar">
                     <div class="job-info">
-                        <div class="job-avatar" style="background-image: url('https://placehold.co/100x100/3C5A74/ebebeb?text=IF')"></div>
+                        <div class="job-avatar" style="background-color: #336699;"></div>
                         <div class="job-text">
                             <h4>Becario de Desarrollo</h4>
                             <p>Facultad de Informática</p>
@@ -68,18 +66,17 @@
                         </div>
                     </div>
                     <div class="job-status status-accepted">
-                        <img src="https://api.iconify.design/mdi:check-circle-outline.svg?color=#4ade80">
-                        Aceptado
+                        <span>✔</span> Aceptado
                     </div>
                     <div class="job-actions">
                         <a href="#" class="btn btn-secondary btn-accion-card">Ver Detalles</a>
-                        <a href="#" class="btn-user-action" title="Retirar postulación"><img src="https://api.iconify.design/mdi:close-circle-outline.svg?color=#f87171"></a>
+                        <button class="btn-user-action" title="Retirar postulación">✕</button>
                     </div>
                 </div>
-
+            
                 <div class="postulacion-card status-viewed-bar">
                     <div class="job-info">
-                        <div class="job-avatar" style="background-image: url('https://placehold.co/100x100/3C5A74/ebebeb?text=IS')"></div>
+                        <div class="job-avatar" style="background-color: #888;"></div>
                         <div class="job-text">
                             <h4>Analista de Datos Jr.</h4>
                             <p>Innovatech Solutions</p>
@@ -87,18 +84,17 @@
                         </div>
                     </div>
                     <div class="job-status status-viewed">
-                        <img src="https://api.iconify.design/mdi:eye-outline.svg?color=#93c5fd">
-                        CV Visto
+                        <span>👁</span> CV Visto
                     </div>
                     <div class="job-actions">
                         <a href="#" class="btn btn-secondary btn-accion-card">Ver Detalles</a>
-                        <a href="#" class="btn-user-action" title="Retirar postulación"><img src="https://api.iconify.design/mdi:close-circle-outline.svg?color=#f87171"></a>
+                        <button class="btn-user-action" title="Retirar postulación">✕</button>
                     </div>
                 </div>
-
+            
                 <div class="postulacion-card status-pending-bar">
                     <div class="job-info">
-                        <div class="job-avatar" style="background-image: url('https://placehold.co/100x100/3C5A74/ebebeb?text=EF')"></div>
+                        <div class="job-avatar" style="background-color: #cca;"></div>
                         <div class="job-text">
                             <h4>Desarrollador Front-End Jr.</h4>
                             <p>Empresa Ficticia S.A.</p>
@@ -106,18 +102,17 @@
                         </div>
                     </div>
                     <div class="job-status status-pending">
-                        <img src="https://api.iconify.design/mdi:clock-outline.svg?color=#fcd34d">
-                        Pendiente
+                        <span>🕒</span> Pendiente
                     </div>
                     <div class="job-actions">
                         <a href="#" class="btn btn-secondary btn-accion-card">Ver Detalles</a>
-                        <a href="#" class="btn-user-action" title="Retirar postulación"><img src="https://api.iconify.design/mdi:close-circle-outline.svg?color=#f87171"></a>
+                        <button class="btn-user-action" title="Retirar postulación">✕</button>
                     </div>
                 </div>
-
+            
                 <div class="postulacion-card status-rejected-bar">
                     <div class="job-info">
-                        <div class="job-avatar" style="background-image: url('https://placehold.co/100x100/3C5A74/ebebeb?text=ST')"></div>
+                        <div class="job-avatar" style="background-color: #d65a5a;"></div>
                         <div class="job-text">
                             <h4>Soporte Técnico N1</h4>
                             <p>Soporte Total</p>
@@ -125,21 +120,22 @@
                         </div>
                     </div>
                     <div class="job-status status-rejected">
-                        <img src="https://api.iconify.design/mdi:close-circle-outline.svg?color=#f87171">
-                        No Seleccionado
+                        <span>✕</span> No Seleccionado
                     </div>
                     <div class="job-actions">
                         <a href="#" class="btn btn-secondary btn-accion-card">Ver Detalles</a>
-                        <a href="#" class="btn-user-action" title="Retirar postulación"><img src="https://api.iconify.design/mdi:close-circle-outline.svg?color=#f87171"></a>
+                        <button class="btn-user-action" title="Eliminar del historial">✕</button>
                     </div>
                 </div>
-
+            
             </div>
         </main>
+        
         <footer class="pantalla-footer">
             <a href="perfilUsuario.html" class="btn btn-secondary">Regresar al Perfil</a>
         </footer>
     </div>
+    
     <script src="../JavaScripts/global.js"></script>
 </body>
 </html>

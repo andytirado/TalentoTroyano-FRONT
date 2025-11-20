@@ -34,6 +34,16 @@
 
             <div class="form-seccion">
                 <h3 class="seccion-titulo">Perfil de la Empresa</h3>
+                <div class="form-grupo-centro">
+                    <label>Logo de la Empresa</label>
+                    <div class="logo-upload-wrapper" onclick="document.getElementById('inputLogo').click()">
+                        <img id="imgPreview" src="../icons/plus.svg" alt="Subir Logo" class="img-placeholder">
+                    </div>
+                    <input type="file" id="inputLogo" accept="image/*" style="display: none;">
+                    <span class="texto-ayuda">Click en el círculo para subir imagen</span>
+                </div>
+                <div class="form-grupo">
+                    <label for="empresa-nombre">Nombre de la Empresa (Razón Social)</label>
                 
                 <div class="form-grupo">
                     <label for="empresa-nombre">Nombre de la Empresa (Razón Social)</label>
@@ -105,6 +115,6 @@
             <button class="btn" id="btn-guardar-perfil">Guardar y Entrar</button>
         </footer>
     </div>
-    
+    <script src="../JavaScripts/empresaCompletarPerfil.js"></script>
     </body>
 </html>

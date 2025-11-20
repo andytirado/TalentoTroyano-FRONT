@@ -1,0 +1,69 @@
+/* css/editarVacante.css */
+
+/* Reutiliza estilos de globalAdmin pero ajusta el layout */
+
+.form-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Grid de 2 columnas para inputs cortos */
+.form-grid-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+/* Contenedor para Descripcion y Requisitos */
+.form-full-width {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Estilo de las etiquetas encima de los inputs */
+.form-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.form-grupo label {
+    font-size: 0.9rem;
+    color: #283747; /* Azul claro suave */
+    font-weight: 600;
+    margin-left: 4px;
+}
+
+/* Sección de Estado (destacada) */
+.estado-section {
+    background-color: #3C5A74;
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid #4A7A9F;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.input-select {
+    background-color: #283747;
+    border: 1px solid #4A7A9F;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    flex-grow: 1;
+}
+
+/* Media Query para móviles */
+@media (max-width: 768px) {
+    .form-grid-2col {
+        grid-template-columns: 1fr; /* Una sola columna en móvil */
+        gap: 1rem;
+    }
+}

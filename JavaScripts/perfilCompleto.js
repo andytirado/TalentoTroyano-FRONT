@@ -198,4 +198,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+    const btnOmitirFoto = document.getElementById('btn-omitir-foto');
+    
+    if (btnOmitirFoto) {
+        btnOmitirFoto.addEventListener('click', () => {
+            // Simplemente cambiamos a la pestaña de éxito sin validar foto
+            changeTab('success');
+        });
+    }
+
 });

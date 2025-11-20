@@ -40,7 +40,7 @@
                     <span class="error-msg" id="error-rfc" style="display: none;"></span>
         
                     <input type="text" id="empresa-industria" placeholder="Industria (Ej. Tecnología)">
-                    </div>
+                </div>
                 <div class="form-col">
                     <div class="btn btn-secondary form-section-title">Datos del Reclutador</div>
                     
@@ -49,10 +49,8 @@
         
                     <input type="email" id="empresa-email" placeholder="Email de Contacto">
                     <span class="error-msg" id="error-email" style="display: none;"></span>
-        
-                    <input type="text" id="empresa-password" placeholder="Contraseña Temporal">
-                    <span class="error-msg" id="error-password" style="display: none;"></span>
-                </div>
+                    
+                    </div>
             </form>
         </main>
         <footer class="pantalla-footer split">
@@ -60,6 +58,7 @@
             <button class="btn" id="btn-guardar-empresa">Guardar Empresa</button>
         </footer>
     </div>
+
     <div class="pantalla" id="success" style="display: none;">
         <main class="pantalla-content success-content">
             <div class="checkmark">
@@ -67,11 +66,16 @@
                 <div class="tick">✔</div>
             </div>
             <h2>Empresa guardada con éxito</h2>
-            <button class="btn" id="volverInicio">Volver al inicio</button>
+            
+            <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+                <button class="btn" id="btnVerCredenciales">Ver credenciales temporales</button>
+                <button class="btn" id="btnEnviarEmail">Enviar por email</button>
+            </div>
+
+            <button class="btn btn-secondary" id="volverInicio">Volver al inicio</button>
         </main>
     </div>
 
-    
     <script src="../JavaScripts/crearEmpresa.js"></script>
 </body>
 </html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postulantes - Talento Troyano</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/globalAdmin.css"> 
+    <link rel="stylesheet" href="../css/verPostulantes.css">
+</head>
+<body>
+
+    <div class="pantalla" id="pantallaPostulantes">
+        
+        <header class="pantalla-header">
+            <div class="logo-app">
+                <img src="../icons/logo.png" alt="Logo Talento Troyano" class="logo-icon">
+                <h2>
+                    <span class="titulo1">Talento</span>
+                    <span class="titulo2">Troyano</span>
+                </h2>
+            </div>
+            <div class="user-info">
+                <span><img src="../icons/notificacion.svg" alt="notificaciones"></span>
+                <span><img src="../icons/mensaje.svg" alt="mensajes"></span>
+                <div class="profile">
+                    <span>Administrador<br>empresa</span>
+                    <div class="avatar"></div>
+                </div>
+            </div>
+        </header>
+
+        <main class="pantalla-content">
+            
+            <div class="page-title-bar">
+                <h2 id="tituloVacante">Postulantes</h2> <div class="search-bar-container">
+                    <input type="text" id="buscadorPostulantes" class="search-input" placeholder="Buscar por nombre o carrera...">
+                    <img src="../icons/search.svg" class="search-icon">
+                </div>
+            </div>
+
+            <div class="lista-postulantes" id="listaPostulantesContainer">
+                <div class="loading-spinner">Cargando postulantes...</div>
+            </div>
+
+        </main>
+        
+        <footer class="pantalla-footer">
+            <a href="vacantesActivas.html" class="btn btn-secondary">Regresar a Vacantes</a>
+        </footer>
+    </div>
+    
+    <script src="../JavaScripts/verPostulantes.js"></script>
+</body>
+</html>

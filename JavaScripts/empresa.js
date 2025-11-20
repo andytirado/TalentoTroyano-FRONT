@@ -1,6 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+    // ============================================================
+    // 1. CARGAR FOTO DE PERFIL (Lógica previa)
+    // ============================================================
+    const logoGuardado = localStorage.getItem('empresaLogo');
+    const contenedorLogo = document.querySelector('.empresa-logo-grande');
+
+    if (logoGuardado && contenedorLogo) {
+        contenedorLogo.innerHTML = `<img src="${logoGuardado}" alt="Logo Empresa" style="width:100%; height:100%; object-fit:cover; border-radius: 50%;">`;
+    }
+
+    // ============================================================
+    // 2. SELECTORES
+    // ============================================================
     
-    // 1. Seleccionar todas las pantallas
+    // Pantallas
     const dashboard = document.getElementById("dashboard");
     const paso1 = document.getElementById("nuevaVacantePaso1");
     const paso2 = document.getElementById("nuevaVacantePaso2");
@@ -9,16 +23,28 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const pantallas = [dashboard, paso1, paso2, paso3, success];
 
-    // 2. Seleccionar todos los botones de navegación
+    // Botones
     const btnNuevaVacante = document.getElementById("btnNuevaVacanteDesdeDashboard");
-    const btnSiguiente1 = document.getElementById("btnSiguiente1"); // (toStep2)
-    const btnAnterior2 = document.getElementById("btnAnterior2");   // (backToStep1)
-    const btnSiguiente2 = document.getElementById("btnSiguiente2"); // (toStep3)
-    const btnRegresar3 = document.getElementById("btnRegresar3");  // (backToStep2)
+    
+    // --- Botones Paso 1 ---
+    const btnCancelar1 = document.getElementById("btnCancelar1"); // <--- NUEVO SELECTOR
+    const btnSiguiente1 = document.getElementById("btnSiguiente1"); 
+    
+    // --- Botones Paso 2 ---
+    const btnAnterior2 = document.getElementById("btnAnterior2");
+    const btnSiguiente2 = document.getElementById("btnSiguiente2");
+    
+    // --- Botones Paso 3 ---
+    const btnRegresar3 = document.getElementById("btnRegresar3");
     const btnPublicar = document.getElementById("btnPublicar");
+    
+    // --- Botones Éxito ---
     const btnVolverInicio = document.getElementById("volverInicio");
 
-    // 3. Función para mostrar una pantalla (reemplaza tu 'showScreen')
+    // ============================================================
+    // 3. FUNCIONES Y LOGICA
+    // ============================================================
+
     function mostrarPantalla(idPantallaAMostrar) {
         pantallas.forEach(pantalla => {
             if (pantalla.id === idPantallaAMostrar) {
@@ -30,36 +56,40 @@ document.addEventListener("DOMContentLoaded", () => {
         window.scrollTo(0, 0);
     }
 
-    // 4. Añadir Event Listeners a los botones (CON TU LÓGICA DE VALIDACIÓN)
-    
-    // Del Dashboard (1) -> al Paso 1 (2)
+    // --- Event Listeners ---
+
+    // 1. Ir del Dashboard al Paso 1
     if (btnNuevaVacante) {
         btnNuevaVacante.addEventListener("click", () => mostrarPantalla("nuevaVacantePaso1"));
     }
 
-    // 🔹 VALIDACIÓN DE CAMPOS DEL PRIMER FORMULARIO (Tu código)
+    // 2. NUEVO: Botón "Regresar" en el Paso 1 (Vuelve al Dashboard)
+    if (btnCancelar1) {
+        btnCancelar1.addEventListener("click", () => mostrarPantalla("dashboard"));
+    }
+
+    // 3. Validación Paso 1 -> Ir al Paso 2
     if (btnSiguiente1) {
         btnSiguiente1.addEventListener('click', () => {
-            // Ajusta este array si cambiaste el ID 'correo' por 'carrera'
             const required = ['titulo', 'contratacion', 'horario', 'modalidad', 'correo', 'ubicacion', 'salario'];
-          
-            // Verifica que todos los campos estén llenos
+            
             for (let id of required) {
-                if (document.getElementById(id).value.trim() === '') {
+                const input = document.getElementById(id);
+                if (input && input.value.trim() === '') {
                     alert('Por favor llena todos los campos antes de continuar.');
-                    return; // Detiene el avance
+                    return; 
                 }
             }
-            mostrarPantalla('nuevaVacantePaso2'); // Si todo está lleno, avanza
+            mostrarPantalla('nuevaVacantePaso2');
         });
     }
 
-    // Del Paso 2 (3) -> al Paso 1 (2) (Anterior)
+    // 4. Paso 2 -> Regresar al Paso 1
     if (btnAnterior2) {
         btnAnterior2.addEventListener('click', () => mostrarPantalla('nuevaVacantePaso1'));
     }
     
-    // 🔹 VALIDACIÓN DE CAMPOS DEL SEGUNDO FORMULARIO (Tu código)
+    // 5. Validación Paso 2 -> Ir al Paso 3 (Resumen)
     if (btnSiguiente2) {
         btnSiguiente2.addEventListener('click', () => {
             const descripcion = document.getElementById('descripcion').value.trim();
@@ -67,10 +97,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (descripcion === '' || requisitos === '') {
                 alert('Completa todos los campos antes de continuar.');
-                return; // Si hay vacíos, no avanza
+                return;
             }
 
-            // Si todo está completo, genera el resumen
+            // Generar HTML del resumen
             const resumen = `
                 <p><strong>${document.getElementById('titulo').value}</strong></p>
                 <p>
@@ -83,34 +113,36 @@ document.addEventListener("DOMContentLoaded", () => {
                 <p><strong>Descripción:</strong><br>${descripcion.replace(/\n/g, '<br>')}</p>
                 <p><strong>Requisitos:</strong><br>${requisitos.replace(/\n/g, '<br>')}</p>
             `;
-            // (Añadí .replace(/\n/g, '<br>') para respetar los saltos de línea del textarea)
 
-            document.getElementById('resumenTexto').innerHTML = resumen;
+            const divResumen = document.getElementById('resumenTexto');
+            if(divResumen) divResumen.innerHTML = resumen;
+            
             mostrarPantalla('nuevaVacantePaso3');
         });
     }
 
-    // Del Paso 3 (4) -> al Paso 2 (3) (Regresar)
+    // 6. Paso 3 -> Regresar al Paso 2
     if (btnRegresar3) {
         btnRegresar3.addEventListener('click', () => mostrarPantalla('nuevaVacantePaso2'));
     }
 
-    // Del Paso 3 (4) -> a Éxito (5) (Publicar)
+    // 7. Paso 3 -> Publicar (Ir a Éxito)
     if (btnPublicar) {
         btnPublicar.addEventListener("click", () => {
-            // Aquí podrías enviar los datos a un servidor
+            console.log("Vacante publicada"); // Aquí iría la conexión al Backend
             mostrarPantalla("success");
         });
     }
 
-    // De Éxito (5) -> al Dashboard (1)
+    // 8. Éxito -> Volver al Dashboard
     if (btnVolverInicio) {
         btnVolverInicio.addEventListener("click", () => {
-            // Opcional: podrías querer limpiar los campos del formulario aquí
             mostrarPantalla("dashboard");
+            // Opcional: Aquí podrías limpiar los inputs del formulario:
+            // document.querySelector('form').reset();
         });
     }
 
-    // 5. Estado inicial: Mostrar solo el dashboard al cargar
+    // Inicialización
     mostrarPantalla("dashboard");
 });
