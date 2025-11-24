@@ -64,32 +64,17 @@ body {
     line-height: 1;
 }
 
-.logo-app {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem; 
-}
-.logo-app .logo-icon {
-    width: 40px; 
-    height: 40px;
-}
-.logo-app h2 {
-    margin: 0;
-    font-size: 1.5rem; 
-    /* El color se define en las clases .titulo1 y .titulo2 */
-}
-
 /* ======================================= */
 /* ESTILOS DEL TÍTULO (MOVIDOS AQUÍ) */
 /* ======================================= */
-.logo-app .titulo1,
-.logo-app .titulo2 {
+.logo-titulo .titulo1,
+.logo-titulo .titulo2 {
     font-family: 'Protest Riot', sans-serif;
 }
-.logo-app .titulo1 {
+.logo-titulo .titulo1 {
     color: #283747; /* Color oscuro (el que usa global.css para texto) */
 }
-.logo-app .titulo2 {
+.logo-titulo .titulo2 {
     color: #336699; /* Color azul de acento */
 }
 /* ======================================= */

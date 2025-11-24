@@ -139,7 +139,7 @@ window.addEventListener('load', async function() {
                     if (normalizedRole === USER_ROLES.STUDENT) {
                         window.location.href = FRONTEND_ROUTES.student.profile;
                     } else if (normalizedRole === USER_ROLES.COMPANY) {
-                        window.location.href = FRONTEND_ROUTES.company.dashboard;
+                        window.location.href = FRONTEND_ROUTES.shared.companyProfile;
                     } else if (normalizedRole === USER_ROLES.ADMIN) {
                         window.location.href = FRONTEND_ROUTES.admin.config;
                     }

@@ -12,14 +12,14 @@ $userRole = "Alumno<br>Ingeniería";
 
     <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../assets/css/core/global.css">
-    <link rel="stylesheet" href="../assets/css/pages/empresa/perfilEmpresa.css">
+    <link rel="stylesheet" href="../../assets/css/global.css">
+    <link rel="stylesheet" href="../../assets/css/perfilEmpresa.css">
 </head>
 <body>
 
     <div class="pantalla" id="pantallaVerPerfil">
 
-        <?php include '../components/header.php'; ?>
+        <?php include '../../components/header.php'; ?>
 
         <main class="pantalla-content">
             
