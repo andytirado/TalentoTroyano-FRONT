@@ -36,4 +36,4 @@ Fortalecer el vínculo entre estudiantes, empresas y la facultad, proporcionando
 **By:**
 - Saúl Aldhair Zapata Pérez
 - Andrea Lizeth Tirado Carrillo
-- Daniel Ruiz
+- Daniel Ruiz Chaparro

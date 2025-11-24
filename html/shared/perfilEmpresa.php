@@ -1,0 +1,121 @@
+<?php
+// Configuración del breadcrumb y rol de usuario para esta página
+$breadcrumb = "Perfil Público";
+$userRole = "Alumno<br>Ingeniería";
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Público - Talento Troyano</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/core/global.css">
+    <link rel="stylesheet" href="../assets/css/pages/empresa/perfilEmpresa.css">
+</head>
+<body>
+
+    <div class="pantalla" id="pantallaVerPerfil">
+
+        <?php include '../components/header.php'; ?>
+
+        <main class="pantalla-content">
+            
+            <section class="empresa-hero">
+                <div class="hero-logo-container">
+                    <img id="logoPublico" src="https://placehold.co/200x200/3C5A74/ebebeb?text=LOGO" alt="Logo Empresa">
+                </div>
+                <div class="hero-text">
+                    <h1 id="nombreEmpresa">Empresa Ficticia S.A. de C.V.</h1>
+                    <p class="hero-industria">Tecnología y Desarrollo de Software</p>
+                    <div class="hero-badges">
+                        <span class="badge">📍 Querétaro, Qro.</span>
+                        <span class="badge">👥 +50 Empleados</span>
+                        <a href="#" class="link-web" target="_blank">🔗 www.miempresa.com</a>
+                    </div>
+                </div>
+            </section>
+
+            <div class="perfil-grid">
+                
+                <div class="col-principal">
+                    <div class="info-card">
+                        <h3 class="card-title">Sobre Nosotros</h3>
+                        <div class="card-body">
+                            <p>Somos una empresa líder en el desarrollo de soluciones tecnológicas innovadoras, comprometida con la transformación digital de nuestros clientes.</p>
+                            <br>
+                            <p>Nuestra misión es conectar talento joven con proyectos desafiantes que impulsen su crecimiento profesional. Contamos con un ambiente de trabajo dinámico, inclusivo y orientado a resultados.</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <h3 class="card-title">¿Por qué trabajar aquí?</h3>
+                        <ul class="lista-beneficios">
+                            <li>🚀 Crecimiento profesional acelerado</li>
+                            <li>💻 Modalidad híbrida y horarios flexibles</li>
+                            <li>🎓 Capacitación continua y certificaciones</li>
+                            <li>🤝 Excelente ambiente laboral</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lateral">
+                    <div class="info-card">
+                        <h3 class="card-title">Información General</h3>
+                        <div class="detalle-item">
+                            <img src="https://api.iconify.design/mdi:domain.svg?color=#b0c4d4" alt="Icono">
+                            <div>
+                                <strong>Industria</strong>
+                                <span>Tecnología</span>
+                            </div>
+                        </div>
+                        <div class="detalle-item">
+                            <img src="https://api.iconify.design/mdi:calendar-check.svg?color=#b0c4d4" alt="Icono">
+                            <div>
+                                <strong>Fundación</strong>
+                                <span>2015</span>
+                            </div>
+                        </div>
+                         <div class="detalle-item">
+                            <img src="https://api.iconify.design/mdi:map-marker.svg?color=#b0c4d4" alt="Icono">
+                            <div>
+                                <strong>Ubicación</strong>
+                                <span>Av. Central 123, Parque Industrial Benito Juárez, Querétaro.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-card contact-card">
+                        <h3 class="card-title">Contacto de Reclutamiento</h3>
+                        <div class="recruiter-info">
+                            <div class="recruiter-avatar">JP</div>
+                            <div>
+                                <strong>Juan Pérez</strong>
+                                <span>Gerente de RRHH</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-full-width" style="margin-top: 1rem;">Enviar Mensaje</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+        
+        <footer class="pantalla-footer">
+            <button onclick="history.back()" class="btn btn-secondary">Regresar</button>
+        </footer>
+    </div>
+    
+    <!-- Scripts de autenticación y API -->
+    <script src="../../assets/js/config.js"></script>
+    <script src="../../assets/js/auth.js"></script>
+    <script src="../../assets/js/api.js"></script>
+    <script src="../../assets/js/global.js"></script>
+
+    <!-- Script específico de la página -->
+    <script src="../../assets/js/perfilEmpresa.js"></script>
+</body>
+</html>

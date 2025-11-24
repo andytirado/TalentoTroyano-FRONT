@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Talento Troyano – Crear cuenta</title>
+  <link rel="stylesheet" href="../../assets/css/singup.css">
+</head>
+<body>
+  <div class="frame">
+    <div class="card">
+      <!-- Panel izquierdo -->
+      <section class="left">
+        <div class="topbar">Sign in</div>
+        <h1>Estas a punto de ser parte del</h1>
+        <h2 class="brand">Talento Troyano</h2>
+
+        <form>
+          <!-- Correo -->
+          <div class="field">
+            <label for="email">Correo electrónico</label>
+            <div class="input-wrap">
+              <input id="email" name="email" type="email" placeholder="Correo electrónico" required>
+            </div>
+          </div>
+
+          <!-- Contraseña -->
+          <div class="field">
+            <label for="password">Contraseña</label>
+            <div class="input-wrap">
+              <input id="password" name="password" type="password" placeholder="Contraseña" required>
+              <button class="toggle" type="button" data-target="password">👁</button>
+            </div>
+          </div>
+
+          <!-- Confirmar contraseña -->
+          <div class="field">
+            <label for="password2">Confirmar contraseña</label>
+            <div class="input-wrap">
+              <input id="password2" name="password2" type="password" placeholder="Confirmar contraseña" required>
+              <button class="toggle" type="button" data-target="password2">👁</button>
+            </div>
+          </div>
+
+          <button type="submit">Crear cuenta</button>
+        </form>
+      </section>
+
+      <!-- Panel derecho -->
+      <aside class="right">
+        <div class="circle">
+          <img src="../../assets/icons/logo.png" alt="Logotipo Talento Troyano">
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    // Mostrar/ocultar contraseña
+    document.querySelectorAll('.toggle').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const id = btn.getAttribute('data-target');
+        const input = document.getElementById(id);
+        input.type = input.type === 'password' ? 'text' : 'password';
+      });
+    });
+  </script>
+
+  <!-- Scripts de autenticación y API -->
+  <script src="../../assets/js/config.js"></script>
+  <script src="../../assets/js/auth.js"></script>
+  <script src="../../assets/js/api.js"></script>
+
+  <!-- Script específico de signup -->
+  <script src="../../assets/js/signup.js"></script>
+
+</body>
+</html>

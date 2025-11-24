@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Talento Troyano — Login</title>
+  <link rel="stylesheet" href="../../assets/css/login.css">
+</head>
+<body>
+  <div class="frame">
+    <div class="card">
+
+      <!-- Panel izquierdo: ilustración -->
+      <aside class="left" aria-hidden="true">
+        <div class="circle">
+          <img class="logo" src="../../assets/icons/logo.png" alt="Logotipo Talento Troyano">
+        </div>
+      </aside>
+
+      <!-- Panel derecho: formulario -->
+      <main class="right">
+        <div class="topbar">Login</div>
+
+        <header class="header">
+          <h1 class="title">Bienvenido <span class="brand">Troyano</span></h1>
+        </header>
+
+        <form class="form" id="login-form" autocomplete="on">
+          <!-- Correo -->
+          <div class="field">
+            <label for="email" class="label">Correo electrónico</label>
+            <div class="input-wrap">
+              <input id="email" name="email" type="email" placeholder="Correo electrónico" autocomplete="email" required>
+            </div>
+          </div>
+
+          <!-- Contraseña -->
+          <div class="field">
+            <label for="password" class="label">Contraseña</label>
+            <div class="input-wrap">
+              <input id="password" name="password" type="password" placeholder="Contraseña" autocomplete="current-password" minlength="8" required>
+              <button class="toggle" type="button" aria-label="Mostrar u ocultar contraseña" data-target="password">👁</button>
+            </div>
+          </div>
+
+          <!-- Enlace de restablecer -->
+          <div class="row actions-inline">
+           <a href="#" id="link-forgot">Restablecer contraseña</a>
+          </div>
+
+          <!-- Botón principal -->
+          <div class="actions">
+            <button class="btn primary" type="submit" id="btn-login">Iniciar Sesión</button>
+          </div>
+
+          <!-- Botón Google -->
+          <div class="actions">
+            <button class="btn google" type="button" id="btn-google">
+              <span class="g-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" width="20" height="20" aria-hidden="true">
+                  <path d="M44.5 20H24v8.5h11.8C34.8 32.9 30.2 36 24 36c-6.6 0-12.2-4.5-14.1-10.5S10 12 16.6 12c3.6 0 6.8 1.4 9.2 3.8l6-6C28 6.1 22.6 4 16.6 4 7.9 4 .5 11.4.5 20S7.9 36 16.6 36c8 0 14.9-5.4 16.9-12.6.3-1 .5-2 .5-3.1 0-1-.1-2-.3-3.3z" fill="currentColor"/>
+                </svg>
+              </span>
+              <span>Iniciar Sesión con Google</span>
+            </button>
+          </div>
+
+          <!-- Registro -->
+          <p class="small">
+            ¿No tienes cuenta?
+            <a class="link signup" href="signup.php">Regístrate</a>
+          </p>
+        </form>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    // Mostrar/ocultar contraseña
+    document.querySelectorAll('.toggle').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const id = btn.getAttribute('data-target');
+        const input = document.getElementById(id);
+        input.type = input.type === 'password' ? 'text' : 'password';
+      });
+    });
+  </script>
+<!-- Enviar codigo -->
+<div class="modal" id="modal-forgot" role="dialog" aria-modal="true" aria-labelledby="forgot-title" aria-hidden="true">
+  <div class="modal__backdrop"></div>
+  <div class="modal__dialog">
+    <button class="modal__close" type="button" data-close>×</button>
+    <h3 class="modal__title" id="forgot-title">¿Olvidaste tu contraseña?</h3>
+    <p class="modal__subtitle">Ingresa tu correo para restablecerla.</p>
+
+    <form id="form-send-code">
+      <label class="sr-only" for="forgot-email">Correo electrónico</label>
+      <input id="forgot-email" name="email" type="email" placeholder="Correo electrónico" required />
+      <button class="btn-primary" type="submit">Enviar código de recuperación</button>
+    </form>
+  </div>
+</div>
+
+<!-- Restablecer contraseña -->
+<div class="modal" id="modal-reset" role="dialog" aria-modal="true" aria-labelledby="reset-title" aria-hidden="true">
+  <div class="modal__backdrop"></div>
+  <div class="modal__dialog">
+    <button class="modal__close" type="button" data-close>×</button>
+    <h3 class="modal__title" id="reset-title">Crea tu nueva contraseña</h3>
+
+    <form id="form-reset-pass">
+      <input type="hidden" name="email" id="reset-email" />
+      <label class="sr-only" for="code">Código</label>
+      <input id="code" name="token" type="text" inputmode="numeric" placeholder="Código" required />
+
+      <div class="field">
+        <label class="sr-only" for="new-pass">Contraseña</label>
+        <input id="new-pass" name="password" type="password" placeholder="Contraseña" minlength="8" required />
+        <button class="eye" type="button" data-eye="#new-pass">👁</button>
+      </div>
+
+      <div class="field">
+        <label class="sr-only" for="new-pass2">Confirmar contraseña</label>
+        <input id="new-pass2" name="password_confirmation" type="password" placeholder="Confirmar contraseña" minlength="8" required />
+        <button class="eye" type="button" data-eye="#new-pass2">👁</button>
+      </div>
+
+      <button class="btn-primary" type="submit">Restablecer contraseña</button>
+    </form>
+  </div>
+</div>
+<style>
+  .sr-only{position:absolute;left:-9999px}
+  .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:1000}
+  .modal[aria-hidden="false"]{display:flex}
+  .modal__backdrop{position:absolute;inset:0;background:rgba(0,0,0,.35);backdrop-filter:blur(4px)}
+  .modal__dialog{
+    position:relative; width:min(520px,92vw); background:#fff; border-radius:10px;
+    box-shadow:0 10px 30px rgba(0,0,0,.25); padding:20px 22px 22px;
+  }
+  .modal__close{position:absolute;top:8px;right:10px;border:0;background:transparent;font-size:20px;cursor:pointer}
+  .modal__title{margin:8px 6px 0;font-size:22px;font-weight:800}
+  .modal__subtitle{margin:4px 6px 12px;color:#5b6572;font-size:14px}
+  form{display:grid;gap:10px}
+  input{
+    width:100%;border:1px solid #cfd6de;background:#f5f7fa;border-radius:8px;
+    padding:10px 12px;font-size:14px;outline:none;
+  }
+  input:focus{border-color:#7fa6d2;background:#fff;box-shadow:0 0 0 3px rgba(63,131,248,.14)}
+  .btn-primary{
+    border:0;border-radius:8px;background:#3a6aa0;color:#fff;font-weight:600;
+    padding:10px 14px;cursor:pointer;
+  }
+  .btn-primary:hover{background:#335f91}
+  .field{position:relative}
+  .field .eye{
+    position:absolute;right:8px;top:50%;transform:translateY(-50%);
+    border:0;background:transparent;cursor:pointer;font-size:16px;opacity:.7
+  }
+</style>
+<script>
+  const $forgot = document.getElementById('modal-forgot');
+  const $reset  = document.getElementById('modal-reset');
+  document.getElementById('link-forgot')?.addEventListener('click', (e)=>{
+    e.preventDefault(); openModal($forgot);
+  });
+
+  // Cerrar modales
+  document.querySelectorAll('[data-close]').forEach(btn=>{
+    btn.addEventListener('click', ()=> closeModal(btn.closest('.modal')));
+  });
+  document.querySelectorAll('.modal').forEach(m=>{
+    m.addEventListener('click', (e)=>{ if(e.target.classList.contains('modal__backdrop')) closeModal(m); });
+    m.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(m); });
+  });
+
+  // Enviar código
+  document.getElementById('form-send-code')?.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    const email = document.getElementById('forgot-email').value;
+    if (!email) {
+      alert('Por favor, ingresa tu correo electrónico.');
+      return;
+    }
+    
+    const response = await forgotPassword(email);
+
+    if (response.success) {
+      document.getElementById('reset-email').value = email;
+      closeModal($forgot);
+      openModal($reset);
+      document.getElementById('code').focus();
+      alert('Se ha enviado un código de recuperación a tu correo.');
+    } else {
+      alert(response.message || 'No se pudo enviar el código. Inténtalo de nuevo.');
+    }
+  });
+
+  // Restablecer
+  document.getElementById('form-reset-pass')?.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    if(data.password !== data.password_confirmation){
+      alert('Las contraseñas no coinciden.');
+      return;
+    }
+
+    const response = await resetPassword(data);
+
+    if (response.success) {
+      closeModal($reset);
+      alert('Contraseña restablecida con éxito. Ya puedes iniciar sesión.');
+    } else {
+      alert(response.message || 'No se pudo restablecer la contraseña. Verifica el código e inténtalo de nuevo.');
+    }
+  });
+
+  // Mostrar/ocultar contraseña
+  document.querySelectorAll('.eye').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const input = document.querySelector(btn.dataset.eye);
+      input.type = input.type === 'password' ? 'text' : 'password';
+    });
+  });
+
+  // Helpers accesibles
+  function openModal(el){
+    el.setAttribute('aria-hidden','false');
+    // foco al primer input del modal
+    const first = el.querySelector('input, button, a, [tabindex]:not([tabindex="-1"])');
+    first && first.focus();
+  }
+  function closeModal(el){ el.setAttribute('aria-hidden','true'); }
+</script>
+
+<!-- Scripts de autenticación y API -->
+<script src="../../assets/js/config.js"></script>
+<script src="../../assets/js/auth.js"></script>
+<script src="../../assets/js/api.js"></script>
+
+<!-- Script específico de login -->
+<script src="../../assets/js/login.js"></script>
+
+</body>
+</html>

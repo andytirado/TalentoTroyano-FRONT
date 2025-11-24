@@ -1,0 +1,116 @@
+<?php
+// Configuración del breadcrumb y rol de usuario para esta página
+$breadcrumb = "Configuración de Cuenta";
+$userRole = "Administrador<br>Universidad";
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración - Admin</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/global.css">
+    <link rel="stylesheet" href="../../assets/css/globalAdmin.css">
+    <link rel="stylesheet" href="../../assets/css/adminConfiguracion.css">
+</head>
+<body>
+
+    <div class="pantalla" id="adminPantallaConfiguracion">
+        <?php include '../../components/header.php'; ?>
+
+        <main class="pantalla-content form-configuracion">
+
+            <div class="form-seccion">
+                <h3 class="seccion-titulo">Mi Perfil</h3>
+
+                <div class="form-grupo profile-pic-uploader">
+                    <label>Foto de Perfil</label>
+                    <div class="uploader-content">
+                        <div class="current-avatar" style="background-image: url('https://placehold.co/100x100/3C5A74/ebebeb?text=A')"></div>
+                        <div class="uploader-actions">
+                            <p>Sube una foto para el avatar de administrador. (Recomendado: 100x100px, .png o .jpg)</p>
+                            <button class="btn btn-secondary" onclick="document.getElementById('avatar-upload-input').click();">
+                                Cambiar Foto
+                            </button>
+                            <input type="file" id="avatar-upload-input" accept="image/png, image/jpeg" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-grupo">
+                    <label for="admin-nombre">Mi Nombre</label>
+                    <input type="text" id="admin-nombre" value="Administrador Universidad" placeholder="Tu nombre">
+                </div>
+                <div class="form-grupo">
+                    <label for="admin-email">Mi Email de Contacto</label>
+                    <input type="email" id="admin-email" value="admin@universidad.mx" placeholder="Tu email">
+                </div>
+            </div>
+
+            <div class="form-seccion">
+                <h3 class="seccion-titulo">Cambiar Contraseña</h3>
+                <div class="input-grid-col-2">
+                    <div class="form-grupo">
+                        <label for="admin-pass-nueva">Nueva Contraseña</label>
+                        <input type="password" id="admin-pass-nueva" placeholder="Escribe la nueva contraseña">
+                    </div>
+                    <div class="form-grupo">
+                        <label for="admin-pass-confirmar">Confirmar Contraseña</label>
+                        <input type="password" id="admin-pass-confirmar" placeholder="Confirma la nueva contraseña">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-seccion">
+                <h3 class="seccion-titulo">Información de la Institución</h3>
+
+                <div class="form-grupo">
+                    <label for="inst-universidad">Nombre de la Institución (Universidad)</label>
+                    <input type="text" id="inst-universidad" value="Universidad Autónoma de..." placeholder="Ej. Universidad Autónoma de...">
+                </div>
+
+                <div class="form-grupo">
+                    <label for="inst-facultad">Nombre de la Facultad</label>
+                    <input type="text" id="inst-facultad" value="Facultad de Informática" placeholder="Ej. Facultad de Informática">
+                </div>
+
+                <div class="form-grupo">
+                    <label for="inst-encargado">Encargado</label>
+                    <input type="text" id="inst-encargado" value="Dr. Nombre Apellido" placeholder="Nombre del encargado">
+                </div>
+                <div class="input-grid-col-2">
+                    <div class="form-grupo">
+                        <label for="inst-email">Email de Contacto (Facultad)</label>
+                        <input type="email" id="inst-email" value="contacto.fi@universidad.mx" placeholder="Email institucional">
+                    </div>
+                    <div class="form-grupo">
+                        <label for="inst-tel">Teléfono</label>
+                        <input type="text" id="inst-tel" value="(123) 456-7890 Ext. 123" placeholder="Teléfono de contacto">
+                    </div>
+                </div>
+                <div class="form-grupo">
+                    <label for="inst-ubicacion">Ubicación</label>
+                    <input type="text" id="inst-ubicacion" value="Cubículo A-101" placeholder="Ubicación física">
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="pantalla-footer split">
+            <a href="admin.php" class="btn btn-secondary">Regresar</a>
+            <button class="btn" id="btn-guardar-config">Guardar Cambios</button>
+        </footer>
+    </div>
+
+    <!-- Scripts de autenticación y API -->
+    <script src="../../assets/js/config.js"></script>
+    <script src="../../assets/js/auth.js"></script>
+    <script src="../../assets/js/api.js"></script>
+    <script src="../../assets/js/global.js"></script>
+
+    <!-- Script específico de la página -->
+    <script src="../../assets/js/adminConfiguracion.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(tree:*)",
+      "Bash(rm:*)",
+      "Bash(xargs -I {} sh -c 'echo \"\"\"\"=== {} ===\"\"\"\" && grep -E \"\"\"\"(href|src)=\"\"\"\" {} | head -10')",
+      "Bash(fi)",
+      "Bash(done)",
+      "Bash(for file in homeuser.js alumnosAdmin.js crearEmpresa.js crearVacanteAdmin.js empresaCompletarPerfil.js estadisticaEmpresa.js perfilCompleto.js perfilUsuarioEditar.js postulantes.js vacantesActivas.js vacantesFinalizadas.js verPostulantes.js editarVacante.js perfilEmpresa.js)",
+      "Bash(do if [ -f \"$file\" ])",
+      "Bash(then head -5 \"$file\")",
+      "Bash(echo:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(php artisan config:clear:*)",
+      "Bash(php artisan:*)",
+      "Bash(test:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

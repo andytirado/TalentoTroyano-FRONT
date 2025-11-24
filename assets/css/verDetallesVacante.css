@@ -1,0 +1,34 @@
+/* --- Estilos para la página de Detalles de Vacante --- */
+
+/* Contenedor principal de detalles */
+.resumen-texto {
+    background-color: #fff;
+    color: #333;
+    padding: 1.5rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+    line-height: 1.6;
+}
+
+.resumen-texto h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #03204E;
+    margin-bottom: 1rem;
+}
+
+.resumen-texto p {
+    margin-bottom: 1em;
+    line-height: 1.6;
+}
+
+.resumen-texto strong {
+    color: #03204E;
+    font-weight: 600;
+}
+
+/* Estado de carga */
+.resumen-texto p[style*="text-align: center"] {
+    color: #666;
+    font-style: italic;
+}
